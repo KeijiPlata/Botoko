@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200.035" height="36.37" viewBox="0 0 550 100">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 100px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #1d4598;
+      }
+
+      .cls-1, .cls-3 {
+        text-anchor: middle;
+        font-family: Poppins;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        font-size: 41.667px;
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <text id="BOTOKO" class="cls-1" x="315.162" y="85.299"><tspan x="315.162">BOTOKO</tspan></text>
+  <path id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" class="cls-2" d="M33.316,5.061H89.321a7,7,0,0,1,7,7V88.038a7,7,0,0,1-7,7H33.316a7,7,0,0,1-7-7V12.061A7,7,0,0,1,33.316,5.061Z"/>
+  <text id="_20" data-name="20" class="cls-3" x="61.18" y="45.326"><tspan x="61.18">20</tspan></text>
+  <text id="_25" data-name="25" class="cls-3" x="61.18" y="86.326"><tspan x="61.18">25</tspan></text>
+</svg>
