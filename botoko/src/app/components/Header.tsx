@@ -1,17 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Logo from "../../../public/logo-botoko.svg";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
+import { useState } from "react";
+import Logo from "../../../public/logo-botoko.svg";
 
-import { MdLanguage } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
+import { MdLanguage } from "react-icons/md";
 
 function Header() {
   const [language, setLanguage] = useState("English");
