@@ -13,6 +13,7 @@ export default {
   			poppins: 'var(--font-poppins)'
   		},
   		colors: {
+			'custom-blue' : '#1e419b',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

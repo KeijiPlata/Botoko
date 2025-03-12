@@ -21,7 +21,7 @@ function Header() {
   };
   
   return (
-    <div className="flex justify-between items-center p-5 font-poppins">
+    <div className="flex justify-between items-center p-5 font-poppins w-full h-full">
       <div>
         <Image src={Logo} alt="Logo"  className="w-32 md:w-40 h-auto"/>
       </div>
