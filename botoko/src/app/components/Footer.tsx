@@ -1,12 +1,8 @@
-import React from "react";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { FaMobileAlt, FaEnvelope, FaCoffee } from "react-icons/fa";
-import { BsGithub } from "react-icons/bs";
-import { BsFacebook } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { FaCoffee, FaEnvelope, FaMobileAlt } from "react-icons/fa";
 
 function Footer() {
   const data = [
