@@ -15,7 +15,7 @@ const Candidate = ({
   isAdded,
 }: CandidateProps): React.JSX.Element => {
   return (
-    <div>
+    <div className="bg-custom-blue flex flex-row justify-center w-full">
       <h2>{name}</h2>
       <p>{position}</p>
       <Image src={image} alt={name} height={300} width={300}/>
