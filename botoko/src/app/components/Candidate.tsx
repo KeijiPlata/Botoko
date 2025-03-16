@@ -19,29 +19,32 @@ const Candidate = ({
   isAdded,
 }: CandidateProps): React.JSX.Element => {
   return (
-    <div className=" bg-custom-blue rounded-lg w-full shadow-md grid grid-cols-3 justify-items-center content-center place-items-center place-content-center relative h-36">
-      <Image
-        src={image}
-        width={200}
-        height={200}
-        alt=""
-        className="absolute left-5 bottom-0"
-      />
-
-      <div className="col-span-2 justify-self-end">
-        <h2 className="text-white leading-none font-semibold text-lg uppercase">
-          {firstName}
-        </h2>
-        <h2 className="text-white text-6xl font-black uppercase leading-none">
-          {lastName}
-        </h2>
-        <p className="leading-none text-white italic">{position}</p>
+    <div className=" bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-md">
+      <div className="flex flex-row items-center w-full grow">
+        <div className="relative lg:w-40 w-28 lg:h-32 h-24 mr-3 lg:mr-9">
+          <Image
+            src={image}
+            alt={lastName}
+            height={200}
+            width={200}
+            className="absolute bottom-0 lg:left-4 left-2"
+          />
+        </div>
+        <div className="leading-none">
+          <h2 className="text-white leading-none font-semibold lg:text-base md:text-sm uppercase">
+            {firstName}
+          </h2>
+          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-black uppercase leading-none">
+            {lastName}
+          </h2>
+          <p className="leading-none text-white italic text-xs">{position}</p>
+        </div>
       </div>
-      <div className="justify-self-end pr-4">
+      <div className="lg:pr-3 pr-2">
         {isAdded ? (
-          <FaMinus className="text-5xl text-white" />
+          <FaMinus className="lg:text-4xl md:text-3xl text-xl text-white" />
         ) : (
-          <IoMdAdd className="text-5xl text-white" />
+          <IoMdAdd className="lg:text-4xl md:text-3xl text-2xl text-white" />
         )}
       </div>
     </div>

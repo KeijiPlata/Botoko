@@ -11,10 +11,10 @@ import Candidate from "../components/Candidate";
 
 function CandidatesPage() {
   return (
-    <Tabs defaultValue="candidates" className="flex flex-col gap-5">
-      <div className="flex flex-col gap-5 md:gap-3 md:flex-row md:justify-between items-center w-full mb-7">
+    <Tabs defaultValue="candidates" className="flex flex-col gap-5 w-full">
+      <div className="flex flex-col gap-5 md:gap-3 md:flex-row md:justify-between items-center w-full lg:pb-7 md:pb-5">
         <div className="flex w-full max-w-lg items-center gap-3">
-          <div className="relative w-full max-w-sm">
+          <div className="relative w-full ">
             <FiSearch
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
               size={18}
@@ -43,7 +43,9 @@ function CandidatesPage() {
       </div>
 
       <div className="w-full  rounded-md">
-        <TabsContent value="candidates" className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <TabsContent value="candidates" className="grid grid-cols-1 md:grid-cols-2 lg:gap-9 md:gap-6 gap-5">
+          <Candidate firstName="Benhur" lastName="Abalos" position="Candidate for Senate 2025" image={sample.src} isAdded={false} />
+          <Candidate firstName="Jerome" lastName="Adonis" position="Candidate for Senate 2025" image={sample2.src} isAdded={false} />
           <Candidate firstName="Benhur" lastName="Abalos" position="Candidate for Senate 2025" image={sample.src} isAdded={false} />
           <Candidate firstName="Jerome" lastName="Adonis" position="Candidate for Senate 2025" image={sample2.src} isAdded={false} />
         </TabsContent>
