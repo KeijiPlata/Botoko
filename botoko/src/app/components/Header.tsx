@@ -27,8 +27,8 @@ function Header() {
       </div>
       <div>
         <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center gap-2 text-sm px-3 py-2 rounded-md border border-gray-300 hover:bg-gray-100 transition">
-            <MdLanguage className="md:text-xl text-lg" />
+          <DropdownMenuTrigger className="flex text-gray-500 items-center gap-2 text-sm px-3 py-2 rounded-md border border-gray-300 hover:bg-gray-100 transition">
+            <MdLanguage className="md:text-xl text-lg text-gray-500" />
             <span className="hidden md:inline">{language}</span>
             <IoIosArrowDown className="md:text-xl text-lg" />
           </DropdownMenuTrigger>
