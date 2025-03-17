@@ -1,13 +1,9 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { FiSearch } from "react-icons/fi";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import sample from "../../../public/candidates/Abalos.png";
-import sample2 from "../../../public/candidates/Adonis.png";
-
-
+import { FiSearch } from "react-icons/fi";
 import Candidate from "../components/Candidate";
+import CandidateInfo from "../data/candidates.json";
 
 function CandidatesPage() {
   return (
@@ -44,10 +40,9 @@ function CandidatesPage() {
 
       <div className="w-full  rounded-md">
         <TabsContent value="candidates" className="grid grid-cols-1 md:grid-cols-2 lg:gap-9 md:gap-6 gap-5">
-          <Candidate firstName="Benhur" lastName="Abalos" position="Candidate for Senate 2025" image={sample.src} isAdded={false} />
-          <Candidate firstName="Jerome" lastName="Adonis" position="Candidate for Senate 2025" image={sample2.src} isAdded={false} />
-          <Candidate firstName="Benhur" lastName="Abalos" position="Candidate for Senate 2025" image={sample.src} isAdded={false} />
-          <Candidate firstName="Jerome" lastName="Adonis" position="Candidate for Senate 2025" image={sample2.src} isAdded={false} />
+          {CandidateInfo.map((candidate) => (
+            <><Candidate firstName={candidate["first-name"]} lastName={candidate["last-name"]} position={candidate.position} image={candidate.image} isAdded/></>
+          ))}
         </TabsContent>
         <TabsContent value="myvotes">
           <p>Shortlisted candidates will be displayed here.</p>

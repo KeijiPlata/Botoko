@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
-import { FaMinus } from "react-icons/fa";
+import { HiMinusSm } from "react-icons/hi";
 
 type CandidateProps = {
   firstName: string;
@@ -31,18 +31,18 @@ const Candidate = ({
           />
         </div>
         <div className="leading-none">
-          <h2 className="text-white leading-none font-semibold lg:text-base md:text-sm uppercase">
+          <h3 className="text-white leading-none font-semibold lg:text-lg md:text-sm uppercase tracking-tight space-y-0">
             {firstName}
-          </h2>
-          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-black uppercase leading-none">
+          </h3>
+          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-black uppercase leading-none tracking-tight space-y-0">
             {lastName}
           </h2>
-          <p className="leading-none text-white italic text-xs">{position}</p>
+          <p className="leading-none text-white italic text-xs lg:text-base tracking-tight space-y-0">{position}</p>
         </div>
       </div>
       <div className="lg:pr-3 pr-2">
         {isAdded ? (
-          <FaMinus className="lg:text-4xl md:text-3xl text-xl text-white" />
+          <HiMinusSm className="lg:text-4xl md:text-3xl text-xl text-white" />
         ) : (
           <IoMdAdd className="lg:text-4xl md:text-3xl text-2xl text-white" />
         )}
