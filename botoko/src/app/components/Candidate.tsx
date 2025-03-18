@@ -3,12 +3,14 @@ import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
 
+// CandidateProps now includes onVoteToggle function
 type CandidateProps = {
   firstName: string;
   lastName: string;
   position: string;
   image: string;
   isAdded: boolean;
+  onVoteToggle: () => void;
 };
 
 const Candidate = ({
@@ -17,9 +19,10 @@ const Candidate = ({
   position,
   image,
   isAdded,
+  onVoteToggle,
 }: CandidateProps): React.JSX.Element => {
   return (
-    <div className=" bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-md">
+    <div className="bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-md">
       <div className="flex flex-row items-center w-full grow">
         <div className="relative lg:w-40 w-28 lg:h-32 h-24 mr-3 lg:mr-9">
           <Image
@@ -31,21 +34,25 @@ const Candidate = ({
           />
         </div>
         <div className="leading-none">
-          <h3 className="text-white leading-none font-semibold lg:text-lg md:text-sm uppercase tracking-tight space-y-0">
+          <h3 className="text-white font-semibold lg:text-lg md:text-sm uppercase tracking-tight">
             {firstName}
           </h3>
-          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-black uppercase leading-none tracking-tight space-y-0">
+          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-black uppercase tracking-tight">
             {lastName}
           </h2>
-          <p className="leading-none text-white italic text-xs lg:text-base tracking-tight space-y-0">{position}</p>
+          <p className="text-white italic text-xs lg:text-base tracking-tight">
+            {position}
+          </p>
         </div>
       </div>
       <div className="lg:pr-3 pr-2">
-        {isAdded ? (
-          <HiMinusSm className="lg:text-4xl md:text-3xl text-xl text-white" />
-        ) : (
-          <IoMdAdd className="lg:text-4xl md:text-3xl text-2xl text-white" />
-        )}
+        <button onClick={onVoteToggle}>
+          {isAdded ? (
+            <HiMinusSm className="lg:text-4xl md:text-3xl text-xl text-white" />
+          ) : (
+            <IoMdAdd className="lg:text-4xl md:text-3xl text-2xl text-white" />
+          )}
+        </button>
       </div>
     </div>
   );
