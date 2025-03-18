@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -33,10 +32,11 @@ function CandidatesPage() {
             duration: 3000,
             style: {
               background: "#ffffff",
-              color: "#ff8c00", // Orange for warning
+              color: "#ff8c00",
               fontWeight: "bold",
-              borderRadius: "10px",
-              padding: "10px 15px",
+              borderRadius: "15px",
+              padding: "20px",
+              fontFamily: "var(--font-poppins)",
             },
           }
         );
@@ -48,10 +48,11 @@ function CandidatesPage() {
             duration: 3000,
             style: {
               background: "#ffffff",
-              color: "#1e419b", // Blue for success
+              color: "#1e419b",
               fontWeight: "bold",
-              borderRadius: "10px",
-              padding: "10px 15px",
+              borderRadius: "15px",
+              padding: "20px",
+              fontFamily: "var(--font-poppins)",
             },
           }
         );
@@ -64,10 +65,11 @@ function CandidatesPage() {
           duration: 3000,
           style: {
             background: "#ffffff",
-            color: "#ff4d4d", // Red for error
+            color: "#ff4d4d",
             fontWeight: "bold",
-            borderRadius: "10px",
-            padding: "10px 15px",
+            borderRadius: "15px",
+            padding: "20px",
+            fontFamily: "var(--font-poppins)",
           },
         }
       );
