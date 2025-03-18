@@ -1,14 +1,16 @@
 "use client";
 
 import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FiSearch } from "react-icons/fi";
+import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
 import Candidate from "../components/Candidate";
 import CandidateInfo from "../data/candidates.json";
 
-// Define the type for a candidate
 type CandidateType = {
   id: number;
   firstName: string;
@@ -20,25 +22,65 @@ type CandidateType = {
 function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<CandidateType[]>([]);
 
-  // Function to handle adding/removing candidates
   const toggleVote = (candidate: CandidateType) => {
     setMyVotes((prevVotes) => {
       const isAlreadyAdded = prevVotes.some((c) => c.id === candidate.id);
 
       if (isAlreadyAdded) {
+        toast.warning(
+          `Removed ${candidate.firstName} ${candidate.lastName} from your votes.`,
+          {
+            duration: 3000,
+            style: {
+              background: "#ffffff",
+              color: "#ff8c00", // Orange for warning
+              fontWeight: "bold",
+              borderRadius: "10px",
+              padding: "10px 15px",
+            },
+          }
+        );
         return prevVotes.filter((c) => c.id !== candidate.id);
       } else if (prevVotes.length < 12) {
+        toast.success(
+          `Added ${candidate.firstName} ${candidate.lastName} to your votes.`,
+          {
+            duration: 3000,
+            style: {
+              background: "#ffffff",
+              color: "#1e419b", // Blue for success
+              fontWeight: "bold",
+              borderRadius: "10px",
+              padding: "10px 15px",
+            },
+          }
+        );
         return [...prevVotes, candidate];
       }
+
+      toast.error(
+        `Vote limit reached! You can only vote for up to 12 candidates.`,
+        {
+          duration: 3000,
+          style: {
+            background: "#ffffff",
+            color: "#ff4d4d", // Red for error
+            fontWeight: "bold",
+            borderRadius: "10px",
+            padding: "10px 15px",
+          },
+        }
+      );
       return prevVotes;
     });
   };
 
   return (
     <Tabs defaultValue="candidates" className="flex flex-col gap-5 w-full">
+      <Toaster />
       <div className="flex flex-col gap-5 md:gap-3 md:flex-row md:justify-between items-center w-full lg:pb-7 md:pb-5">
         <div className="flex w-full max-w-lg items-center gap-3">
-          <div className="relative w-full ">
+          <div className="relative w-full">
             <FiSearch
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
               size={18}
