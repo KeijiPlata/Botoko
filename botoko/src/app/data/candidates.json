@@ -3,7 +3,7 @@
     "id": 1,
     "first-name": "Benhur",
     "last-name": "Abalos",
-    "position": "Former DILG secretary, candidate for senator (2025)",
+    "position": "Former DILG secretary",
     "image": "/candidates/Abalos.png"
   },
   {
@@ -31,7 +31,7 @@
     "id": 5,
     "first-name": "Bam",
     "last-name": "Aquino",
-    "position": "Senator (2013-2019), candidate for senator (2025)",
+    "position": "Senator (2013-2019)",
     "image": "/candidates/Aquino.png"
   },
   {
@@ -59,21 +59,20 @@
     "id": 9,
     "first-name": "Abby",
     "last-name": "Binay",
-    "position": "Incumbent mayor of Makati City, candidate for senator (2025)",
+    "position": "Mayor of Makati City",
     "image": "/candidates/Binay.png"
   },
   {
     "id": 10,
     "first-name": "Jimmy",
     "last-name": "Bondoc",
-    "position": "Celebrity, candidate for senator (2025)",
-    "image": "/candidates/Arellano.png"
-  },
-  {
+    "position": "Celebrity",
+    "image": "/candidates/Bondoc.png"
+  },  {
     "id": 11,
     "first-name": "Benhur",
     "last-name": "Abalos",
-    "position": "Former DILG secretary, candidate for senator (2025)",
+    "position": "Former DILG secretary",
     "image": "/candidates/Abalos.png"
   },
   {
@@ -101,7 +100,7 @@
     "id": 15,
     "first-name": "Bam",
     "last-name": "Aquino",
-    "position": "Senator (2013-2019), candidate for senator (2025)",
+    "position": "Senator (2013-2019)",
     "image": "/candidates/Aquino.png"
   },
   {
@@ -129,14 +128,15 @@
     "id": 19,
     "first-name": "Abby",
     "last-name": "Binay",
-    "position": "Incumbent mayor of Makati City, candidate for senator (2025)",
+    "position": "Mayor of Makati City",
     "image": "/candidates/Binay.png"
   },
   {
     "id": 20,
     "first-name": "Jimmy",
     "last-name": "Bondoc",
-    "position": "Celebrity, candidate for senator (2025)",
-    "image": "/candidates/Arellano.png"
+    "position": "Celebrity",
+    "image": "/candidates/Bondoc.png"
   }
+ 
 ]
