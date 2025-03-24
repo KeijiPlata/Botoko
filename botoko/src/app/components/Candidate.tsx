@@ -3,7 +3,6 @@ import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
 
-// CandidateProps now includes onVoteToggle function
 type CandidateProps = {
   firstName: string;
   lastName: string;
@@ -22,7 +21,7 @@ const Candidate = ({
   onVoteToggle,
 }: CandidateProps): React.JSX.Element => {
   return (
-    <div className="bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-md">
+    <div className="bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-lg transition-transform duration-300 ease-in-out scale-100 hover:scale-105">
       <div className="flex flex-row items-center w-full grow">
         <div className="relative lg:w-40 w-28 lg:h-32 h-24 mr-3 lg:mr-9">
           <Image
