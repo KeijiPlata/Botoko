@@ -3,7 +3,6 @@ import Image from "next/image";
 import { IoMdAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
 
-// CandidateProps now includes onVoteToggle function
 type CandidateProps = {
   firstName: string;
   lastName: string;

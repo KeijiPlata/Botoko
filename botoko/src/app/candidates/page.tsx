@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FiSearch } from "react-icons/fi";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
+import { EmptyCandidate } from "../components/EmptyCandidate";
 import Candidate from "../components/Candidate";
 import CandidateInfo from "../data/candidates.json";
 
@@ -134,6 +135,7 @@ function CandidatesPage() {
               }
             />
           ))}
+          <EmptyCandidate />
         </TabsContent>
         <TabsContent value="myvotes">
           {myVotes.length > 0 ? (
