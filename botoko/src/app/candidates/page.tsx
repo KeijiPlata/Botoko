@@ -12,13 +12,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { EmptyCandidate } from "../components/EmptyCandidate";
 import Candidate from "../components/Candidate";
 import CandidateInfo from "../data/candidates.json";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog"; 
+} from "@/components/ui/dialog";
 
 type CandidateType = {
   id: number;
@@ -30,8 +30,8 @@ type CandidateType = {
 
 function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<CandidateType[]>([]);
-  const [isDialogOpen, setIsDialogOpen] = useState(false); 
-  const router = useRouter(); 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const router = useRouter();
 
   const toggleVote = (candidate: CandidateType) => {
     setMyVotes((prevVotes) => {
@@ -109,12 +109,12 @@ function CandidatesPage() {
       );
       return;
     }
-    setIsDialogOpen(true); 
+    setIsDialogOpen(true);
   };
 
   const confirmFinalization = () => {
     setIsDialogOpen(false);
-    router.push("/final"); 
+    router.push("/final");
   };
 
   return (
@@ -255,7 +255,7 @@ function CandidatesPage() {
                 Cancel
               </Button>
               <Button
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-custom-blue hover:bg-sky-900 transition-all duration-300 ease-in-out active:scale-95"
                 onClick={confirmFinalization}
               >
                 Confirm
