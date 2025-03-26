@@ -4,15 +4,19 @@ import Image from "next/image";
 
 export const FinalCandidate = () => {
   return (
-    <div className="relative flex items-center justify-center rounded-xl bg-custom-blue w-full max-w-[180px] sm:max-w-[200px] md:max-w-[220px] lg:max-w-[240px] xl:max-w-[260px] aspect-[3/4]">
-      <div className="relative w-full h-full">
+    <div className="flex flex-col items-center justify-center w-full font-poppins gap-3">
+      <div className="relative w-full h-32 rounded-xl bg-custom-blue">
         <Image
           src={Abalos}
           alt="Abalos"
           layout="fill"
           objectFit="cover"
-          className="rounded-xl absolute bottom-[-10%] w-full h-auto"
+          className="rounded-xl absolute bottom-0 w-full h-auto"
         />
+      </div>
+      <div className="flex flex-col leading-0 items-center justify-center">
+        <h2 className="font-bold text-2xl uppercase leading-none">Benhur Abalos</h2>
+        <p className="leading-0 text-gray-500 italic leading-none">Former DILG Secretary</p>
       </div>
     </div>
   );
