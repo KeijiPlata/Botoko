@@ -113,6 +113,9 @@ function CandidatesPage() {
   };
 
   const confirmFinalization = () => {
+    if (myVotes.length > 0) {
+      localStorage.setItem("myVotes", JSON.stringify(myVotes));
+    }
     setIsDialogOpen(false);
     router.push("/final");
   };
