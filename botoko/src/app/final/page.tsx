@@ -16,8 +16,8 @@ const FinalListPage = () => {
   });
 
   return (
-    <div className="pb-4">
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center">
+    <div className="pb-4 w-full">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-3 md:gap-5 gap-2 place-items-center">
         {[...Array(12)].map((_, index) => (
           <FinalCandidate key={index} />
         ))}
