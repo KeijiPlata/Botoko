@@ -5,7 +5,7 @@ import Image from "next/image";
 export const FinalCandidate = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full font-poppins md:gap-3 gap-1">
-      <div className="w-full max-w-[160px] md:max-w-[180px] lg:max-w-[200px]">
+      <div className="w-full max-w-[210px] md:max-w-[250px] lg:max-w-[250px]">
         <Image
           src={Abalos}
           alt="Abalos"
@@ -14,10 +14,13 @@ export const FinalCandidate = () => {
         />
       </div>
       <div className="flex flex-col leading-tight items-center justify-center m-0">
-        <h2 className="font-bold lg:text-2xl md:text-xl text-lg uppercase leading-tight text-center m-0">
-          Benhur Abalos
+        <h2 className="font-semibold uppercase text-sm leading-none text-center m-0 flex flex-col">
+          Benhur{" "}
+          <span className="md:text-2xl text-lg font-bold leading-none">
+            Abalos
+          </span>
         </h2>
-        <p className="leading-0 text-gray-500 italic leading-tight text-center text-xs md:text-base m-0">
+        <p className="leading-0 text-gray-500 italic leading-tight text-center text-xs md:text-sm m-0">
           Former DILG Secretary
         </p>
       </div>
