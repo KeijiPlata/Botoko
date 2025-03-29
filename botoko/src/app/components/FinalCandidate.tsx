@@ -1,27 +1,40 @@
 import React from "react";
-import Abalos from "../../../public/final-candidates/Abalos.png";
 import Image from "next/image";
 
-export const FinalCandidate = () => {
+type FinalcandidateProps = {
+  firstName: string;
+  lastName: string;
+  position: string;
+  image: string;
+};
+
+export const FinalCandidate = ({
+  firstName,
+  lastName,
+  position,
+  image,
+}: FinalcandidateProps): React.JSX.Element => {
   return (
     <div className="flex flex-col items-center justify-center w-full font-poppins md:gap-3 gap-1">
-      <div className="w-full max-w-[210px] md:max-w-[250px] lg:max-w-[250px]">
+      <div className="w-full max-w-[210px] md:max-w-[250px] lg:max-w-[250px] grow">
         <Image
-          src={Abalos}
-          alt="Abalos"
-          className="w-full h-auto rounded-xl"
+          src={image}
+          alt={lastName}
+          width={375}
+          height={350}
+          className="w-full h-auto"
           priority
         />
       </div>
       <div className="flex flex-col leading-tight items-center justify-center m-0">
-        <h2 className="font-semibold uppercase text-sm leading-none text-center m-0 flex flex-col">
-          Benhur{" "}
-          <span className="md:text-2xl text-lg font-bold leading-none">
-            Abalos
+        <h2 className="uppercase text-center m-0 flex flex-col font-bold leading-none text-[clamp(16px,4vw,24px)]">
+          {lastName}
+          <span className="leading-none font-semibold text-[clamp(10px,2.5vw,16px)]">
+            {firstName}
           </span>
         </h2>
-        <p className="leading-0 text-gray-500 italic leading-tight text-center text-xs md:text-sm m-0">
-          Former DILG Secretary
+        <p className="text-gray-500 italic leading-tight text-center text-[clamp(8px,2vw,14px)]">
+          {position}
         </p>
       </div>
     </div>

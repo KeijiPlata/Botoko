@@ -26,6 +26,7 @@ type CandidateType = {
   lastName: string;
   position: string;
   image: string;
+  finalImage: string,
 };
 
 function CandidatesPage() {
@@ -183,6 +184,7 @@ function CandidatesPage() {
                       lastName: candidate["last-name"],
                       position: candidate.position,
                       image: candidate.image,
+                      finalImage: candidate["final-image"],
                     })
                   }
                 />
