@@ -82,7 +82,7 @@
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
-    "id": 1,
+    "id": 11,
     "first-name": "Benhur",
     "last-name": "Abalos",
     "position": "Former DILG secretary",
@@ -90,7 +90,7 @@
     "final-image": "/final-candidates/Abalos.png"
   },
   {
-    "id": 2,
+    "id": 12,
     "first-name": "Jerome",
     "last-name": "Adonis",
     "position": "Candidate for senator (2025)",
@@ -98,7 +98,7 @@
     "final-image": "/final-candidates/Adonis.png"
   },
   {
-    "id": 3,
+    "id": 13,
     "first-name": "Wilson",
     "last-name": "Amad",
     "position": "Candidate for senator (2025)",
@@ -106,7 +106,7 @@
     "final-image": "/final-candidates/Amad.png"
   },
   {
-    "id": 4,
+    "id": 14,
     "first-name": "Jocelyn",
     "last-name": "Andamo",
     "position": "Candidate for senator (2025)",
@@ -114,7 +114,7 @@
     "final-image": "/final-candidates/Andamo.png"
   },
   {
-    "id": 5,
+    "id": 15,
     "first-name": "Bam",
     "last-name": "Aquino",
     "position": "Senator (2013-2019)",
@@ -122,7 +122,7 @@
     "final-image": "/final-candidates/Aquino.png"
   },
   {
-    "id": 6,
+    "id": 16,
     "first-name": "Ronnel",
     "last-name": "Arambulo",
     "position": "Candidate for senator (2025)",
@@ -131,7 +131,7 @@
 
   },
   {
-    "id": 7,
+    "id": 17,
     "first-name": "Ernesto",
     "last-name": "Arellano",
     "position": "Candidate for senator (2025)",
@@ -140,7 +140,7 @@
 
   },
   {
-    "id": 8,
+    "id": 18,
     "first-name": "Roberto",
     "last-name": "Ballon",
     "position": "Candidate for senator (2025)",
@@ -148,7 +148,7 @@
     "final-image": "/final-candidates/Ballon.png"
   },
   {
-    "id": 9,
+    "id": 19,
     "first-name": "Abby",
     "last-name": "Binay",
     "position": "Mayor of Makati City",
@@ -156,7 +156,7 @@
     "final-image": "/final-candidates/Binay.png"
   },
   {
-    "id": 10,
+    "id": 20,
     "first-name": "Jimmy",
     "last-name": "Bondoc",
     "position": "Celebrity",
