@@ -30,6 +30,7 @@ const Candidate = ({
             height={200}
             width={200}
             className="absolute bottom-0 lg:left-4 left-2"
+            priority
           />
         </div>
         <div className="leading-none space-y-0">

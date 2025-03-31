@@ -20,27 +20,21 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-type CandidateType = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  position: string;
-  image: string;
-  finalImage: string,
-};
-
 function CandidatesPage() {
-  const [myVotes, setMyVotes] = useState<CandidateType[]>([]);
+  const [myVotes, setMyVotes] = useState<number[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const router = useRouter();
 
-  const toggleVote = (candidate: CandidateType) => {
+  const toggleVote = (candidateId: number) => {
     setMyVotes((prevVotes) => {
-      const isAlreadyAdded = prevVotes.some((c) => c.id === candidate.id);
+      const isAlreadyAdded = prevVotes.includes(candidateId);
+      const candidate = CandidateInfo.find((c) => c.id === candidateId);
+
+      if (!candidate) return prevVotes;
 
       if (isAlreadyAdded) {
         toast.warning(
-          `Removed ${candidate.firstName} ${candidate.lastName} from your votes.`,
+          `Removed ${candidate["first-name"]} ${candidate["last-name"]} from your votes.`,
           {
             duration: 3000,
             style: {
@@ -54,10 +48,10 @@ function CandidatesPage() {
           }
         );
 
-        return prevVotes.filter((c) => c.id !== candidate.id);
+        return prevVotes.filter((id) => id !== candidateId);
       } else if (prevVotes.length < 12) {
         toast.success(
-          `Added ${candidate.firstName} ${candidate.lastName} to your votes.`,
+          `Added ${candidate["first-name"]} ${candidate["last-name"]} to your votes.`,
           {
             duration: 3000,
             style: {
@@ -70,7 +64,7 @@ function CandidatesPage() {
             },
           }
         );
-        return [...prevVotes, candidate];
+        return [...prevVotes, candidateId];
       }
 
       toast.error(
@@ -176,17 +170,8 @@ function CandidatesPage() {
                   lastName={candidate["last-name"]}
                   position={candidate.position}
                   image={candidate.image}
-                  isAdded={myVotes.some((c) => c.id === candidate.id)}
-                  onVoteToggle={() =>
-                    toggleVote({
-                      id: candidate.id,
-                      firstName: candidate["first-name"],
-                      lastName: candidate["last-name"],
-                      position: candidate.position,
-                      image: candidate.image,
-                      finalImage: candidate["final-image"],
-                    })
-                  }
+                  isAdded={myVotes.includes(candidate.id)}
+                  onVoteToggle={() => toggleVote(candidate.id)}
                 />
               </motion.div>
             ))}
@@ -197,7 +182,10 @@ function CandidatesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-9 md:gap-6 gap-5">
             <AnimatePresence>
               {Array.from({ length: 12 }).map((_, index) => {
-                const candidate = myVotes[index];
+                const candidateId = myVotes[index];
+                const candidate = CandidateInfo.find(
+                  (c) => c.id === candidateId
+                );
                 return candidate ? (
                   <motion.div
                     key={candidate.id}
@@ -207,12 +195,12 @@ function CandidatesPage() {
                     transition={{ duration: 0.3 }}
                   >
                     <Candidate
-                      firstName={candidate.firstName}
-                      lastName={candidate.lastName}
+                      firstName={candidate["first-name"]}
+                      lastName={candidate["last-name"]}
                       position={candidate.position}
                       image={candidate.image}
                       isAdded={true}
-                      onVoteToggle={() => toggleVote(candidate)}
+                      onVoteToggle={() => toggleVote(candidate.id)}
                     />
                   </motion.div>
                 ) : (
