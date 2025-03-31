@@ -6,7 +6,7 @@ import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
   variable: "--font-poppins",
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
         className={`${poppins.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        <main className="flex-grow p-5 font-poppins">{children}</main>
+        <main className="flex-grow p-2 md:p-5 font-poppins">{children}</main>
         <Footer />
       </body>
     </html>

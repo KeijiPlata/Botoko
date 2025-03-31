@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +12,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { EmptyCandidate } from "../components/EmptyCandidate";
 import Candidate from "../components/Candidate";
 import CandidateInfo from "../data/candidates.json";
+import { useRouter } from "next/navigation";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 type CandidateType = {
   id: number;
@@ -18,10 +26,13 @@ type CandidateType = {
   lastName: string;
   position: string;
   image: string;
+  finalImage: string,
 };
 
 function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<CandidateType[]>([]);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const router = useRouter();
 
   const toggleVote = (candidate: CandidateType) => {
     setMyVotes((prevVotes) => {
@@ -79,6 +90,35 @@ function CandidatesPage() {
 
       return prevVotes;
     });
+  };
+
+  const handleFinalizeVotes = () => {
+    if (myVotes.length === 0) {
+      toast.error(
+        `You must vote for at least one candidate before finalizing!`,
+        {
+          duration: 3000,
+          style: {
+            background: "#ffffff",
+            color: "#ff4d4d",
+            fontWeight: "bold",
+            borderRadius: "15px",
+            padding: "20px",
+            fontFamily: "var(--font-poppins)",
+          },
+        }
+      );
+      return;
+    }
+    setIsDialogOpen(true);
+  };
+
+  const confirmFinalization = () => {
+    if (myVotes.length > 0) {
+      localStorage.setItem("myVotes", JSON.stringify(myVotes));
+    }
+    setIsDialogOpen(false);
+    router.push("/final");
   };
 
   return (
@@ -144,6 +184,7 @@ function CandidatesPage() {
                       lastName: candidate["last-name"],
                       position: candidate.position,
                       image: candidate.image,
+                      finalImage: candidate["final-image"],
                     })
                   }
                 />
@@ -188,8 +229,46 @@ function CandidatesPage() {
               })}
             </AnimatePresence>
           </div>
+
+          <div className="flex justify-end mt-5">
+            <Button
+              className="bg-custom-blue hover:bg-sky-900 transition-all duration-300 ease-in-out active:scale-95"
+              onClick={handleFinalizeVotes}
+            >
+              Finalize Votes
+            </Button>
+          </div>
         </TabsContent>
       </div>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.3 }}
+        >
+          <DialogContent className="w-full max-w-sm sm:max-w-md bg-gray-100 p-4 sm:p-6 rounded-lg shadow-lg font-poppins mx-auto">
+            <DialogTitle className="text-lg sm:text-xl font-bold text-gray-800">
+              Confirm Your Votes
+            </DialogTitle>
+            <DialogDescription className="text-gray-600 mt-2 text-sm sm:text-base">
+              Would you like to finalize your selection?
+            </DialogDescription>
+            <div className="flex justify-end gap-3 mt-5">
+              <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button
+                className="bg-custom-blue hover:bg-sky-900 transition-all duration-300 ease-in-out active:scale-95"
+                onClick={confirmFinalization}
+              >
+                Confirm
+              </Button>
+            </div>
+          </DialogContent>
+        </motion.div>
+      </Dialog>
     </Tabs>
   );
 }

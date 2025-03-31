@@ -31,7 +31,7 @@ function Footer() {
                 </h3>
               </div>
 
-              <h2 className="text-white font-poppins lg:text-5xl md:text-4xl text-3xl font-bold">
+              <h2 className="text-white font-poppins lg:text-5xl md:text-4xl text-3xl font-semibold">
                 Talk Or Meet With Me
               </h2>
             </div>
@@ -47,7 +47,7 @@ function Footer() {
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <h3 className="text-white font-bold lg:text-lg md:text-base text-sm font-poppins ">
+                    <h3 className="text-white font-semibold lg:text-lg md:text-base text-sm font-poppins ">
                       {item.title}
                     </h3>
                     <h2 className="text-white font-poppins lg:text-2xl md:text-lg text-base">
@@ -68,7 +68,7 @@ function Footer() {
                 </h3>
               </div>
 
-              <h2 className="text-white font-poppins lg:text-5xl md:text-4xl text-3xl font-bold">
+              <h2 className="text-white font-poppins lg:text-5xl md:text-4xl text-3xl font-semibold">
                 Let Me Know Here
               </h2>
             </div>
@@ -93,7 +93,7 @@ function Footer() {
               />
               <Button
                 type="submit"
-                className="bg-white text-customBlue rounded-md p-2 font-bold w-1/3 hover:bg-slate-200 transition-all duration-500"
+                className="bg-white text-customBlue rounded-md p-2 font-semibold w-1/3 hover:bg-slate-200 transition-all duration-500"
               >
                 Send
               </Button>

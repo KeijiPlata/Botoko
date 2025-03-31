@@ -32,14 +32,14 @@ const Candidate = ({
             className="absolute bottom-0 lg:left-4 left-2"
           />
         </div>
-        <div className="leading-none">
-          <h3 className="text-white font-semibold lg:text-lg md:text-sm uppercase tracking-tight">
+        <div className="leading-none space-y-0">
+          <h3 className="text-white font-semibold lg:text-lg md:text-sm uppercase leading-none m-0">
             {firstName}
           </h3>
-          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-black uppercase tracking-tight">
+          <h2 className="text-white lg:text-4xl md:text-3xl text-2xl font-bold uppercase leading-none m-0">
             {lastName}
           </h2>
-          <p className="text-white italic text-xs lg:text-base tracking-tight">
+          <p className="text-white italic text-xs lg:text-base leading-none m-0">
             {position}
           </p>
         </div>
