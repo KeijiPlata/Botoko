@@ -1,13 +1,19 @@
 "use client";
 import { useState } from "react";
 import { FinalCandidate } from "../components/FinalCandidate";
-import { IoMdShare } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { IoEllipsisVertical } from "react-icons/io5";
+import { IoMdShare } from "react-icons/io";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import logo from "../../../public/logo-botoko-with-tagline.svg";
+import { ShareDialog } from "../components/ShareDialog";
 
 type CandidateType = {
   id: number;
@@ -23,6 +29,8 @@ const FinalListPage = () => {
     return JSON.parse(localStorage.getItem("myVotes") || "[]");
   });
 
+  const [isShareOpen, setIsShareOpen] = useState(false);
+
   return (
     <div className="pb-4 w-full flex flex-col gap-3">
       <div className="w-full flex items-center">
@@ -30,7 +38,11 @@ const FinalListPage = () => {
         <Image src={logo} className="w-64 md:w-72 lg:w-80 h-auto" alt="logo" />
 
         <div className="hidden sm:flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
-          <Button variant="ghost" className="text-lg text-gray-500">
+          <Button
+            onClick={() => setIsShareOpen(true)}
+            variant="ghost"
+            className="text-lg text-gray-500"
+          >
             <IoMdShare className="text-2xl cursor-pointer text-gray-500" />
             Share
           </Button>
@@ -48,7 +60,10 @@ const FinalListPage = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem className="flex items-center gap-2 text-gray-500">
+              <DropdownMenuItem
+                className="flex items-center gap-2 text-gray-500"
+                onClick={() => setIsShareOpen(true)}
+              >
                 <IoMdShare className="text-xl text-gray-500" />
                 Share
               </DropdownMenuItem>
@@ -72,6 +87,8 @@ const FinalListPage = () => {
           />
         ))}
       </div>
+
+      <ShareDialog isOpen={isShareOpen} onClose={() => setIsShareOpen(false)} />
     </div>
   );
 };
