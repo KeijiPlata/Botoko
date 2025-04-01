@@ -166,6 +166,7 @@ function CandidatesPage() {
                 transition={{ duration: 0.3 }}
               >
                 <Candidate
+                  id={candidate.id}
                   firstName={candidate["first-name"]}
                   lastName={candidate["last-name"]}
                   position={candidate.position}
@@ -195,6 +196,7 @@ function CandidatesPage() {
                     transition={{ duration: 0.3 }}
                   >
                     <Candidate
+                      id={candidate.id}
                       firstName={candidate["first-name"]}
                       lastName={candidate["last-name"]}
                       position={candidate.position}
