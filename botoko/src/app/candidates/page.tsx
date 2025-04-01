@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -19,11 +19,20 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import LZString from "lz-string";
+
 
 function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<number[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const storedVotes: number[] = JSON.parse(
+      localStorage.getItem("myVotes") || "[]"
+    );
+    setMyVotes(storedVotes);
+  }, []);
 
   const toggleVote = (candidateId: number) => {
     setMyVotes((prevVotes) => {
@@ -110,9 +119,14 @@ function CandidatesPage() {
   const confirmFinalization = () => {
     if (myVotes.length > 0) {
       localStorage.setItem("myVotes", JSON.stringify(myVotes));
+
+      const compressedVotes = LZString.compressToEncodedURIComponent(
+        JSON.stringify(myVotes)
+      );
+
+      router.push(`/final?votes=${compressedVotes}`);
     }
     setIsDialogOpen(false);
-    router.push("/final");
   };
 
   return (

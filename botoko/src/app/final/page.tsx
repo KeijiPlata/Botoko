@@ -15,17 +15,38 @@ import Image from "next/image";
 import logo from "../../../public/logo-botoko-with-tagline.svg";
 import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
+import { useRouter } from "next/navigation";
+import LZString from "lz-string";
+import { useSearchParams } from "next/navigation";
 
 const FinalListPage = () => {
-  const [myVotes, setMyVotes] = useState<number[]>([]);
   const [isShareOpen, setIsShareOpen] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [myVotes, setMyVotes] = useState<number[]>([]);
 
   useEffect(() => {
-    const storedVotes: number[] = JSON.parse(
-      localStorage.getItem("myVotes") || "[]"
-    );
-    setMyVotes(storedVotes);
-  }, []);
+    const compressedVotes = searchParams.get("votes");
+
+    if (compressedVotes) {
+      const decompressedData =
+        LZString.decompressFromEncodedURIComponent(compressedVotes);
+      const votesArray = decompressedData ? JSON.parse(decompressedData) : [];
+
+      setMyVotes(votesArray);
+      localStorage.setItem("myVotes", JSON.stringify(votesArray));
+    } else {
+      const storedVotes = localStorage.getItem("myVotes");
+      if (storedVotes) {
+        setMyVotes(JSON.parse(storedVotes));
+      }
+    }
+  }, [searchParams]);
+
+  const editVotes = () => {
+    localStorage.setItem("myVotes", JSON.stringify(myVotes));
+    router.push("/candidates");
+  };
 
   return (
     <div className="pb-4 w-full flex flex-col gap-3">
@@ -47,7 +68,11 @@ const FinalListPage = () => {
             <IoMdShare className="text-2xl cursor-pointer text-gray-500" />
             Share
           </Button>
-          <Button variant="ghost" className="text-lg text-gray-500">
+          <Button
+            variant="ghost"
+            className="text-lg text-gray-500"
+            onClick={editVotes}
+          >
             <FaEdit className="text-2xl cursor-pointer text-gray-500" />
             Edit
           </Button>
