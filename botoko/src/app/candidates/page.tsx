@@ -19,8 +19,21 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import LZString from "lz-string";
+import baseX from "base-x";
 
+const BASE62_ALPHABET =
+  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const base62 = baseX(BASE62_ALPHABET);
+
+const encodeCandidates = (candidateIds: number[]): string => {
+  const buffer = Buffer.alloc(candidateIds.length); // Create a buffer of same length
+  candidateIds.forEach((id, index) => {
+    buffer[index] = id; // Store each candidate ID as a byte
+  });
+
+  console.log("Encoded Buffer Value:", buffer.toString("hex")); // Log buffer in hex format
+  return base62.encode(buffer); // Encode the buffer in base62
+};
 
 function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<number[]>([]);
@@ -120,11 +133,10 @@ function CandidatesPage() {
     if (myVotes.length > 0) {
       localStorage.setItem("myVotes", JSON.stringify(myVotes));
 
-      const compressedVotes = LZString.compressToEncodedURIComponent(
-        JSON.stringify(myVotes)
-      );
+      // Encode votes using Base62
+      const encodedVotes = encodeCandidates(myVotes);
 
-      router.push(`/final?votes=${compressedVotes}`);
+      router.push(`/final?v=${encodedVotes}`);
     }
     setIsDialogOpen(false);
   };

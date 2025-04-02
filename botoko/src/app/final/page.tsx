@@ -16,8 +16,27 @@ import logo from "../../../public/logo-botoko-with-tagline.svg";
 import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
 import { useRouter } from "next/navigation";
-import LZString from "lz-string";
 import { useSearchParams } from "next/navigation";
+import baseX from "base-x";
+
+const BASE62_ALPHABET =
+  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const base62 = baseX(BASE62_ALPHABET);
+
+const decodeCandidates = (encoded: string): number[] => {
+  try {
+    if (!encoded) return [];
+
+    const decodedBuffer = base62.decode(encoded); // Decode the base62 string back to a buffer
+    console.log("Decoded Buffer Value:", decodedBuffer);
+ // Correctly use 'hex' encoding
+
+    return Array.from(decodedBuffer); // Convert buffer back into an array of numbers
+  } catch (error) {
+    console.error("Failed to decode candidates:", error);
+    return [];
+  }
+};
 
 const FinalListPage = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -26,13 +45,10 @@ const FinalListPage = () => {
   const [myVotes, setMyVotes] = useState<number[]>([]);
 
   useEffect(() => {
-    const compressedVotes = searchParams.get("votes");
+    const encodedVotes = searchParams.get("v") || "";
 
-    if (compressedVotes) {
-      const decompressedData =
-        LZString.decompressFromEncodedURIComponent(compressedVotes);
-      const votesArray = decompressedData ? JSON.parse(decompressedData) : [];
-
+    if (encodedVotes) {
+      const votesArray = decodeCandidates(encodedVotes);
       setMyVotes(votesArray);
       localStorage.setItem("myVotes", JSON.stringify(votesArray));
     } else {
