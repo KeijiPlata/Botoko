@@ -3,10 +3,17 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
-  DialogTitle
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { useEffect, useState } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiCopy, FiDownload } from "react-icons/fi";
@@ -18,12 +25,27 @@ export const ShareDialog = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const [link, setLink] = useState<string>("");
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+
+  useEffect(() => {
+    setLink(window.location.href);
+  }, []);
+
   const socialMediaLogos = [
     { title: "Facebook", icon: <FaFacebookF /> },
     { title: "Twitter", icon: <FaXTwitter /> },
     { title: "Instagram", icon: <FaInstagram /> },
     { title: "Download", icon: <FiDownload /> },
   ];
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(link).then(() => {
+      setTooltipVisible(true);
+      setTimeout(() => setTooltipVisible(false), 2000);
+    });
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md font-poppins">
@@ -62,17 +84,32 @@ export const ShareDialog = ({
               <Input
                 id="link"
                 className="text-gray-500"
-                defaultValue="https://ui.shadcn.com/docs/installation"
                 readOnly
+                value={link}
               />
             </div>
-            <Button
-              type="submit"
-              className="px-3 bg-gray-200 hover:bg-custom-blue hover:text-white text-gray-700"
-            >
-              <span className="sr-only">Copy</span>
-              <FiCopy />
-            </Button>
+
+            <TooltipProvider>
+              <Tooltip open={tooltipVisible}>
+                <TooltipTrigger>
+                  <Button
+                    type="button"
+                    onClick={handleCopy}
+                    className="px-3 bg-gray-200 hover:bg-custom-blue hover:text-white text-gray-700 relative"
+                  >
+                    <span className="sr-only">Copy</span>
+                    <FiCopy />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent
+                  side="top"
+                  align="center"
+                  className="bg-custom-blue text-white font-poppins"
+                >
+                  Link Copied!
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
         </div>
       </DialogContent>
