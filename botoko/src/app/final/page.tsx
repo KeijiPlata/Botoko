@@ -25,9 +25,7 @@ const base62 = baseX(BASE62_ALPHABET);
 const decodeCandidates = (encoded: string): number[] => {
   try {
     if (!encoded) return [];
-
     const decodedBuffer = base62.decode(encoded);
-    console.log("Decoded Buffer Value:", decodedBuffer);
 
     return Array.from(decodedBuffer);
   } catch (error) {

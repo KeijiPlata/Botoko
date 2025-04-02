@@ -30,7 +30,6 @@ const encodeCandidates = (candidateIds: number[]): string => {
     buffer[index] = id; 
   });
 
-  console.log("Encoded Buffer Value:", buffer.toString("hex")); 
   return base62.encode(buffer); 
 };
 
