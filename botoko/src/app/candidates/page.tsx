@@ -1,38 +1,37 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FiSearch } from "react-icons/fi";
-import { toast } from "sonner";
-import { Toaster } from "@/components/ui/sonner";
-import { motion, AnimatePresence } from "framer-motion";
-import { EmptyCandidate } from "../components/EmptyCandidate";
-import Candidate from "../components/Candidate";
-import CandidateInfo from "../data/candidates.json";
-import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
-  DialogTitle,
   DialogDescription,
+  DialogTitle,
 } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Toaster } from "@/components/ui/sonner";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import baseX from "base-x";
+import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FiSearch } from "react-icons/fi";
+import { toast } from "sonner";
+import Candidate from "../components/Candidate";
+import { EmptyCandidate } from "../components/EmptyCandidate";
+import CandidateInfo from "../data/candidates.json";
 
 const BASE62_ALPHABET =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const base62 = baseX(BASE62_ALPHABET);
 
 const encodeCandidates = (candidateIds: number[]): string => {
-  const buffer = Buffer.alloc(candidateIds.length); // Create a buffer of same length
+  const buffer = Buffer.alloc(candidateIds.length); 
   candidateIds.forEach((id, index) => {
-    buffer[index] = id; // Store each candidate ID as a byte
+    buffer[index] = id; 
   });
 
-  console.log("Encoded Buffer Value:", buffer.toString("hex")); // Log buffer in hex format
-  return base62.encode(buffer); // Encode the buffer in base62
+  console.log("Encoded Buffer Value:", buffer.toString("hex")); 
+  return base62.encode(buffer); 
 };
 
 function CandidatesPage() {
@@ -132,8 +131,6 @@ function CandidatesPage() {
   const confirmFinalization = () => {
     if (myVotes.length > 0) {
       localStorage.setItem("myVotes", JSON.stringify(myVotes));
-
-      // Encode votes using Base62
       const encodedVotes = encodeCandidates(myVotes);
 
       router.push(`/final?v=${encodedVotes}`);

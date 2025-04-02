@@ -1,9 +1,4 @@
 "use client";
-import { useState, useEffect } from "react";
-import { FinalCandidate } from "../components/FinalCandidate";
-import { FaEdit } from "react-icons/fa";
-import { IoEllipsisVertical } from "react-icons/io5";
-import { IoMdShare } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,13 +6,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import baseX from "base-x";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { IoMdShare } from "react-icons/io";
+import { IoEllipsisVertical } from "react-icons/io5";
 import logo from "../../../public/logo-botoko-with-tagline.svg";
+import { FinalCandidate } from "../components/FinalCandidate";
 import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
-import baseX from "base-x";
 
 const BASE62_ALPHABET =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -27,11 +26,10 @@ const decodeCandidates = (encoded: string): number[] => {
   try {
     if (!encoded) return [];
 
-    const decodedBuffer = base62.decode(encoded); // Decode the base62 string back to a buffer
+    const decodedBuffer = base62.decode(encoded);
     console.log("Decoded Buffer Value:", decodedBuffer);
- // Correctly use 'hex' encoding
 
-    return Array.from(decodedBuffer); // Convert buffer back into an array of numbers
+    return Array.from(decodedBuffer);
   } catch (error) {
     console.error("Failed to decode candidates:", error);
     return [];
