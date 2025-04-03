@@ -23,13 +23,15 @@ export const ShareDialog = ({
   isOpen,
   onClose,
   captureRef,
+  setIsCapturing,
 }: {
   isOpen: boolean;
   onClose: () => void;
   captureRef: React.RefObject<HTMLDivElement | null>;
+  setIsCapturing: (capturing: boolean) => void;
 }) => {
   const [link, setLink] = useState<string>("");
-  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
 
   useEffect(() => {
     setLink(window.location.href);
@@ -47,26 +49,28 @@ export const ShareDialog = ({
       console.error("captureRef is null");
       return;
     }
-  
-    setTimeout(() => {
-      domtoimage
-        .toPng(captureRef.current as HTMLElement, {
-          bgcolor: "white",
-          width: captureRef.current?.scrollWidth,
-          height: captureRef.current?.scrollHeight,
-        })
-        .then((dataUrl: string) => {
-          const link = document.createElement("a");
-          link.href = dataUrl;
-          link.download = "FinalList.png";
-          link.click();
-        })
-        .catch((error: unknown) => {
-          console.error("Error generating image:", error);
-        });
-    }, 500);
+
+    setIsCapturing(true); // Hide buttons
+    await new Promise((resolve) => setTimeout(resolve, 100)); // Allow UI to update before capturing
+
+    domtoimage
+      .toPng(captureRef.current as HTMLElement, {
+        bgcolor: "white",
+        width: captureRef.current.scrollWidth,
+        height: captureRef.current.scrollHeight,
+      })
+      .then((dataUrl: string) => {
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = "FinalList.png";
+        link.click();
+        setIsCapturing(false); // Show buttons again
+      })
+      .catch((error: unknown) => {
+        console.error("Error generating image:", error);
+        setIsCapturing(false);
+      });
   };
-  
 
   const socialMediaLogos = [
     { title: "Facebook", icon: <FaFacebookF />, action: () => handleDownload },

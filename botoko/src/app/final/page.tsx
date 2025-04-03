@@ -35,6 +35,7 @@ const decodeCandidates = (encoded: string): number[] => {
 
 const FinalListPage = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
+  const [isCapturing, setIsCapturing] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const [myVotes, setMyVotes] = useState<number[]>([]);
@@ -62,7 +63,7 @@ const FinalListPage = () => {
 
   return (
     <div ref={captureRef} className="pb-4 w-full flex flex-col gap-3">
-      <div className="w-full flex items-center">
+      <div className="w-full flex items-center justify-center">
         <div className="flex-1"></div>
         <img
           src={logo.src}
@@ -71,25 +72,30 @@ const FinalListPage = () => {
           crossOrigin="anonymous"
         />
 
-        <div className="hidden sm:flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
-          <Button
-            onClick={() => setIsShareOpen(true)}
-            variant="ghost"
-            className="text-lg text-gray-500"
-          >
-            <IoMdShare className="text-2xl cursor-pointer text-gray-500" />
-            Share
-          </Button>
-          <Button
-            variant="ghost"
-            className="text-lg text-gray-500"
-            onClick={editVotes}
-          >
-            <FaEdit className="text-2xl cursor-pointer text-gray-500" />
-            Edit
-          </Button>
+        <div className="flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
+          {/* Only show buttons if not capturing */}
+          {!isCapturing && (
+            <>
+              <Button
+                onClick={() => setIsShareOpen(true)}
+                variant="ghost"
+                className="text-lg text-gray-500"
+              >
+                <IoMdShare className="text-2xl cursor-pointer text-gray-500" />
+                Share
+              </Button>
+              <Button
+                variant="ghost"
+                className="text-lg text-gray-500"
+                onClick={editVotes}
+              >
+                <FaEdit className="text-2xl cursor-pointer text-gray-500" />
+                Edit
+              </Button>
+            </>
+          )}
         </div>
-
+        
         <div className="flex sm:hidden flex-1 justify-end font-poppins">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -132,6 +138,7 @@ const FinalListPage = () => {
         isOpen={isShareOpen}
         onClose={() => setIsShareOpen(false)}
         captureRef={captureRef}
+        setIsCapturing={setIsCapturing}
       />
     </div>
   );
