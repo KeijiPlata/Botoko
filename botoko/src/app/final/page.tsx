@@ -7,9 +7,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import baseX from "base-x";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
 import { IoEllipsisVertical } from "react-icons/io5";
@@ -39,6 +38,7 @@ const FinalListPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [myVotes, setMyVotes] = useState<number[]>([]);
+  const captureRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const encodedVotes = searchParams.get("v") || "";
@@ -61,14 +61,14 @@ const FinalListPage = () => {
   };
 
   return (
-    <div className="pb-4 w-full flex flex-col gap-3">
+    <div ref={captureRef} className="pb-4 w-full flex flex-col gap-3">
       <div className="w-full flex items-center">
         <div className="flex-1"></div>
-        <Image
-          src={logo}
+        <img
+          src={logo.src}
           className="w-64 md:w-72 lg:w-80 h-auto"
           alt="logo"
-          priority
+          crossOrigin="anonymous"
         />
 
         <div className="hidden sm:flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
@@ -128,7 +128,11 @@ const FinalListPage = () => {
         )}
       </div>
 
-      <ShareDialog isOpen={isShareOpen} onClose={() => setIsShareOpen(false)} />
+      <ShareDialog
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        captureRef={captureRef}
+      />
     </div>
   );
 };

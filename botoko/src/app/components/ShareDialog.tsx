@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import domtoimage from "dom-to-image";
 import { useEffect, useState } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -21,9 +22,11 @@ import { FiCopy, FiDownload } from "react-icons/fi";
 export const ShareDialog = ({
   isOpen,
   onClose,
+  captureRef,
 }: {
   isOpen: boolean;
   onClose: () => void;
+  captureRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   const [link, setLink] = useState<string>("");
   const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -32,19 +35,45 @@ export const ShareDialog = ({
     setLink(window.location.href);
   }, []);
 
-  const socialMediaLogos = [
-    { title: "Facebook", icon: <FaFacebookF /> },
-    { title: "Twitter", icon: <FaXTwitter /> },
-    { title: "Instagram", icon: <FaInstagram /> },
-    { title: "Download", icon: <FiDownload /> },
-  ];
-
   const handleCopy = () => {
     navigator.clipboard.writeText(link).then(() => {
       setTooltipVisible(true);
       setTimeout(() => setTooltipVisible(false), 2000);
     });
   };
+
+  const handleDownload = async () => {
+    if (!captureRef.current) {
+      console.error("captureRef is null");
+      return;
+    }
+  
+    setTimeout(() => {
+      domtoimage
+        .toPng(captureRef.current as HTMLElement, {
+          bgcolor: "white",
+          width: captureRef.current?.scrollWidth,
+          height: captureRef.current?.scrollHeight,
+        })
+        .then((dataUrl: string) => {
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = "FinalList.png";
+          link.click();
+        })
+        .catch((error: unknown) => {
+          console.error("Error generating image:", error);
+        });
+    }, 500);
+  };
+  
+
+  const socialMediaLogos = [
+    { title: "Facebook", icon: <FaFacebookF />, action: () => handleDownload },
+    { title: "Twitter", icon: <FaXTwitter />, action: () => handleDownload },
+    { title: "Instagram", icon: <FaInstagram />, action: () => handleDownload },
+    { title: "Download", icon: <FiDownload />, action: handleDownload },
+  ];
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -59,7 +88,10 @@ export const ShareDialog = ({
                 key={index}
                 className="flex flex-col gap-3 justify-center items-center group"
               >
-                <Button className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 group-hover:bg-custom-blue group-hover:text-white text-gray-700">
+                <Button
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 group-hover:bg-custom-blue group-hover:text-white text-gray-700"
+                  onClick={logo.action}
+                >
                   {logo.icon}
                 </Button>
                 <p className="text-gray-700 text-xs group-hover:text-custom-blue">

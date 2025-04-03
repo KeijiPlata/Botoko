@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 type FinalcandidateProps = {
   firstName: string;
@@ -17,13 +16,13 @@ export const FinalCandidate = ({
   return (
     <div className="flex flex-col items-center justify-center w-full font-poppins md:gap-3 gap-1">
       <div className="w-full max-w-[210px] md:max-w-[250px] lg:max-w-[250px] grow">
-        <Image
+        <img
           src={image}
           alt={lastName}
           width={375}
           height={350}
           className="w-full h-auto"
-          priority
+          crossOrigin="anonymous"
         />
       </div>
       <div className="flex flex-col leading-tight items-center justify-center m-0">

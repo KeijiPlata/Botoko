@@ -20,6 +20,8 @@
     "base-x": "^5.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dom-to-image": "^2.6.0",
+    "html2canvas": "^1.4.1",
     "lucide-react": "^0.479.0",
     "lz-string": "^1.5.0",
     "motion": "^12.5.0",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/dom-to-image": "^2.6.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
