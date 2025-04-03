@@ -73,7 +73,6 @@ const FinalListPage = () => {
         />
 
         <div className="flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
-          {/* Only show buttons if not capturing */}
           {!isCapturing && (
             <>
               <Button
@@ -95,7 +94,7 @@ const FinalListPage = () => {
             </>
           )}
         </div>
-        
+
         <div className="flex sm:hidden flex-1 justify-end font-poppins">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

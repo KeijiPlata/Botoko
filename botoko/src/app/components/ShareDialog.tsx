@@ -50,9 +50,8 @@ export const ShareDialog = ({
       return;
     }
 
-    setIsCapturing(true); // Hide buttons
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Allow UI to update before capturing
-
+    setIsCapturing(true); 
+    await new Promise((resolve) => setTimeout(resolve, 100)); 
     domtoimage
       .toPng(captureRef.current as HTMLElement, {
         bgcolor: "white",
@@ -64,7 +63,7 @@ export const ShareDialog = ({
         link.href = dataUrl;
         link.download = "FinalList.png";
         link.click();
-        setIsCapturing(false); // Show buttons again
+        setIsCapturing(false); 
       })
       .catch((error: unknown) => {
         console.error("Error generating image:", error);
