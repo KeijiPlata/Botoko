@@ -50,9 +50,9 @@ export const ShareDialog = ({
       return;
     }
 
-    setIsCapturing(true); // Show hidden capture container
+    setIsCapturing(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 300)); // Give it time to render
+    await new Promise((resolve) => setTimeout(resolve, 300));
 
     domtoimage
       .toPng(captureRef.current, {
@@ -70,7 +70,7 @@ export const ShareDialog = ({
         console.error("Error generating image:", error);
       })
       .finally(() => {
-        setIsCapturing(false); // Hide again
+        setIsCapturing(false);
       });
   };
 
