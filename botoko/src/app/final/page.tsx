@@ -16,6 +16,7 @@ import logo from "../../../public/logo-botoko-with-tagline.svg";
 import { FinalCandidate } from "../components/FinalCandidate";
 import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
+import { LoadingOverlay } from "../components/LoadingOverlay";
 
 const BASE62_ALPHABET =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -62,7 +63,8 @@ const FinalListPage = () => {
   };
 
   return (
-    <div ref={captureRef} className="pb-4 w-full flex flex-col gap-3">
+    <div className="pb-4 w-full flex flex-col gap-3">
+      {isCapturing && <LoadingOverlay />}
       <div className="w-full flex items-center justify-center">
         <div className="flex-1"></div>
         <img
@@ -72,7 +74,7 @@ const FinalListPage = () => {
           crossOrigin="anonymous"
         />
 
-        <div className="flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
+        <div className="hidden sm:flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
           {!isCapturing && (
             <>
               <Button
@@ -110,7 +112,10 @@ const FinalListPage = () => {
                 <IoMdShare className="text-xl text-gray-500" />
                 Share
               </DropdownMenuItem>
-              <DropdownMenuItem className="flex items-center gap-2 text-gray-500">
+              <DropdownMenuItem
+                className="flex items-center gap-2 text-gray-500"
+                onClick={editVotes}
+              >
                 <FaEdit className="text-xl text-gray-500" />
                 Edit
               </DropdownMenuItem>
@@ -131,6 +136,36 @@ const FinalListPage = () => {
             />
           )
         )}
+      </div>
+
+      <div
+        ref={captureRef}
+        className={`fixed top-0 left-0 w-[1200px] h-[600px] bg-white p-12 flex flex-col gap-4 items-center justify-center transition-opacity duration-200  ${
+          isCapturing
+            ? "opacity-100 z-50 pointer-events-auto"
+            : "opacity-0 z-[-10] pointer-events-none"
+        }`}
+      >
+        <img
+          src={logo.src}
+          alt="logo"
+          className="w-80 h-auto self-center mb-2"
+          crossOrigin="anonymous"
+        />
+
+        <div className="grid grid-cols-6 gap-y-3 gap-1 place-items-center">
+          {CandidateInfo.filter((c) => myVotes.includes(c.id)).map(
+            (candidate) => (
+              <FinalCandidate
+                key={candidate.id}
+                firstName={candidate["first-name"]}
+                lastName={candidate["last-name"]}
+                position={candidate.position}
+                image={candidate["final-image"]}
+              />
+            )
+          )}
+        </div>
       </div>
 
       <ShareDialog

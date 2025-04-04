@@ -40,7 +40,7 @@ export const ShareDialog = ({
   const handleCopy = () => {
     navigator.clipboard.writeText(link).then(() => {
       setTooltipVisible(true);
-      setTimeout(() => setTooltipVisible(false), 2000);
+      setTimeout(() => setTooltipVisible(false), 3000);
     });
   };
 
@@ -50,24 +50,27 @@ export const ShareDialog = ({
       return;
     }
 
-    setIsCapturing(true); 
-    await new Promise((resolve) => setTimeout(resolve, 100)); 
+    setIsCapturing(true); // Show hidden capture container
+
+    await new Promise((resolve) => setTimeout(resolve, 300)); // Give it time to render
+
     domtoimage
-      .toPng(captureRef.current as HTMLElement, {
+      .toPng(captureRef.current, {
+        width: 1200,
+        height: 630,
         bgcolor: "white",
-        width: captureRef.current.scrollWidth,
-        height: captureRef.current.scrollHeight,
       })
       .then((dataUrl: string) => {
         const link = document.createElement("a");
         link.href = dataUrl;
         link.download = "FinalList.png";
         link.click();
-        setIsCapturing(false); 
       })
-      .catch((error: unknown) => {
+      .catch((error) => {
         console.error("Error generating image:", error);
-        setIsCapturing(false);
+      })
+      .finally(() => {
+        setIsCapturing(false); // Hide again
       });
   };
 
