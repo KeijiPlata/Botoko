@@ -25,16 +25,17 @@ const BASE62_ALPHABET =
 const base62 = baseX(BASE62_ALPHABET);
 
 const encodeCandidates = (candidateIds: number[]): string => {
-  const buffer = Buffer.alloc(candidateIds.length); 
+  const buffer = Buffer.alloc(candidateIds.length);
   candidateIds.forEach((id, index) => {
-    buffer[index] = id; 
+    buffer[index] = id;
   });
 
-  return base62.encode(buffer); 
+  return base62.encode(buffer);
 };
 
 function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<number[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const router = useRouter();
 
@@ -44,6 +45,16 @@ function CandidatesPage() {
     );
     setMyVotes(storedVotes);
   }, []);
+
+  const filteredCandidates = CandidateInfo.filter((candidate) => {
+    const fullName =
+      `${candidate["first-name"]} ${candidate["last-name"]}`.toLowerCase();
+    const position = candidate.position.toLowerCase();
+    return (
+      fullName.includes(searchQuery.toLowerCase()) ||
+      position.includes(searchQuery.toLowerCase())
+    );
+  });
 
   const toggleVote = (candidateId: number) => {
     setMyVotes((prevVotes) => {
@@ -147,14 +158,14 @@ function CandidatesPage() {
               className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
               size={18}
             />
-            <Input type="text" placeholder="Search..." className="pl-10" />
+            <Input
+              type="text"
+              placeholder="Search by name or position..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
           </div>
-          <Button
-            type="submit"
-            className="bg-custom-blue hover:bg-sky-900 transition-all duration-300 ease-in-out active:scale-95"
-          >
-            Search
-          </Button>
         </div>
 
         <TabsList className="flex max-w-sm w-full">
@@ -179,7 +190,7 @@ function CandidatesPage() {
           className="grid grid-cols-1 md:grid-cols-2 lg:gap-9 md:gap-6 gap-5"
         >
           <AnimatePresence>
-            {CandidateInfo.map((candidate) => (
+            {filteredCandidates.map((candidate) => (
               <motion.div
                 key={candidate.id}
                 initial={{ opacity: 0, y: -10 }}
