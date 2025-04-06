@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/tooltip";
 import domtoimage from "dom-to-image";
 import { useEffect, useState } from "react";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiCopy, FiDownload } from "react-icons/fi";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 
 export const ShareDialog = ({
   isOpen,
@@ -32,6 +33,7 @@ export const ShareDialog = ({
 }) => {
   const [link, setLink] = useState<string>("");
   const [tooltipVisible, setTooltipVisible] = useState<boolean>(false);
+  const shareMessage = `Here’s my vote for the 2025 Elections! 🇵🇭 Make yours count too.\n\n#Botoko2025\n#Election2025\n\n`;
 
   useEffect(() => {
     setLink(window.location.href);
@@ -74,13 +76,6 @@ export const ShareDialog = ({
       });
   };
 
-  const socialMediaLogos = [
-    { title: "Facebook", icon: <FaFacebookF />, action: () => handleDownload },
-    { title: "Twitter", icon: <FaXTwitter />, action: () => handleDownload },
-    { title: "Instagram", icon: <FaInstagram />, action: () => handleDownload },
-    { title: "Download", icon: <FiDownload />, action: handleDownload },
-  ];
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md font-poppins">
@@ -89,23 +84,41 @@ export const ShareDialog = ({
         </DialogHeader>
         <div className="flex flex-col items-center justify-center w-full gap-3">
           <div className="flex flex-row w-full justify-evenly items-center">
-            {socialMediaLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-3 justify-center items-center group"
-              >
-                <Button
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 group-hover:bg-custom-blue group-hover:text-white text-gray-700"
-                  onClick={logo.action}
-                >
-                  {logo.icon}
+            <FacebookShareButton url={link}>
+              <div className="flex flex-col gap-2 items-center group">
+                <Button className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 group-hover:bg-custom-blue group-hover:text-white text-gray-700">
+                  <FaFacebookF />
                 </Button>
-                <p className="text-gray-700 text-xs group-hover:text-custom-blue">
-                  {logo.title}
+                <p className="text-xs text-gray-700 group-hover:text-custom-blue">
+                  Facebook
                 </p>
               </div>
-            ))}
+            </FacebookShareButton>
+
+            <TwitterShareButton title={shareMessage} url={link}>
+              <div className="flex flex-col gap-2 items-center group">
+                <Button className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 group-hover:bg-custom-blue group-hover:text-white text-gray-700">
+                  <FaXTwitter />
+                </Button>
+                <p className="text-xs text-gray-700 group-hover:text-custom-blue">
+                  Twitter
+                </p>
+              </div>
+            </TwitterShareButton>
+
+            <div className="flex flex-col gap-2 items-center group">
+              <Button
+                onClick={handleDownload}
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-200 group-hover:bg-custom-blue group-hover:text-white text-gray-700"
+              >
+                <FiDownload />
+              </Button>
+              <p className="text-xs text-gray-700 group-hover:text-custom-blue">
+                Download
+              </p>
+            </div>
           </div>
+
           <div className="flex items-center w-full my-3">
             <hr className="flex-grow border-gray-300" />
             <span className="px-2 text-xs text-gray-500">
