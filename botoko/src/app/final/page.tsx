@@ -136,6 +136,9 @@ const FinalListPage = () => {
             />
           )
         )}
+        {[...Array(12 - myVotes.length)].map((_, index) => (
+          <div key={`abstained-${index}`}>hello</div>
+        ))}
       </div>
 
       <div

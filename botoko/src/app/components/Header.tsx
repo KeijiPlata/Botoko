@@ -34,7 +34,8 @@ function Header() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => handleLanguageChange("English")}>English</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleLanguageChange("Filipino")}>Filipino</DropdownMenuItem>
+            {/* TODO: Remove this first temporarily, Add Filipino language to this site */}
+            {/* <DropdownMenuItem onClick={() => handleLanguageChange("Filipino")}>Filipino</DropdownMenuItem>  */}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
