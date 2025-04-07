@@ -37,6 +37,7 @@ function CandidatesPage() {
   const [myVotes, setMyVotes] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("candidates");
   const router = useRouter();
 
   useEffect(() => {
@@ -149,24 +150,35 @@ function CandidatesPage() {
   };
 
   return (
-    <Tabs defaultValue="candidates" className="flex flex-col gap-5 w-full">
+    <Tabs
+      defaultValue="candidates"
+      value={activeTab}
+      onValueChange={setActiveTab}
+      className="flex flex-col gap-5 w-full"
+    >
       <Toaster />
-      <div className="flex flex-col gap-5 md:gap-3 md:flex-row md:justify-between items-center w-full lg:pb-7 md:pb-5">
-        <div className="flex w-full max-w-lg items-center gap-3">
-          <div className="relative w-full">
-            <FiSearch
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-              size={18}
-            />
-            <Input
-              type="text"
-              placeholder="Search by name or position..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
+      <div
+        className={`flex flex-col gap-5 md:gap-3 md:flex-row items-center w-full lg:pb-7 md:pb-5 ${
+          activeTab === "candidates" ? "md:justify-between" : "md:justify-end"
+        }`}
+      >
+        {activeTab === "candidates" && (
+          <div className="flex w-full max-w-lg items-center gap-3">
+            <div className="relative w-full">
+              <FiSearch
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                size={18}
+              />
+              <Input
+                type="text"
+                placeholder="Search by name or position..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
           </div>
-        </div>
+        )}
 
         <TabsList className="flex max-w-sm w-full">
           <TabsTrigger
@@ -190,25 +202,31 @@ function CandidatesPage() {
           className="grid grid-cols-1 md:grid-cols-2 lg:gap-9 md:gap-6 gap-5"
         >
           <AnimatePresence>
-            {filteredCandidates.map((candidate) => (
-              <motion.div
-                key={candidate.id}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Candidate
-                  id={candidate.id}
-                  firstName={candidate["first-name"]}
-                  lastName={candidate["last-name"]}
-                  position={candidate.position}
-                  image={candidate.image}
-                  isAdded={myVotes.includes(candidate.id)}
-                  onVoteToggle={() => toggleVote(candidate.id)}
-                />
-              </motion.div>
-            ))}
+            {filteredCandidates.length > 0 ? (
+              filteredCandidates.map((candidate) => (
+                <motion.div
+                  key={candidate.id}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Candidate
+                    id={candidate.id}
+                    firstName={candidate["first-name"]}
+                    lastName={candidate["last-name"]}
+                    position={candidate.position}
+                    image={candidate.image}
+                    isAdded={myVotes.includes(candidate.id)}
+                    onVoteToggle={() => toggleVote(candidate.id)}
+                  />
+                </motion.div>
+              ))
+            ) : (
+              <div className="col-span-full text-center text-gray-500 text-lg font-medium">
+                No candidates match your search.
+              </div>
+            )}
           </AnimatePresence>
         </TabsContent>
 

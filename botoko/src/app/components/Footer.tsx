@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import logoInverted from "../../../public/logo-botoko-inverted.svg";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { Toaster, toast } from "sonner";
 
 function Footer() {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -23,11 +24,31 @@ function Footer() {
         )
         .then(
           () => {
-            alert("Message sent successfully!");
+            toast.success("Message sent successfully!", {
+              duration: 3000,
+              style: {
+                background: "#ffffff",
+                color: "#1e419b",
+                fontWeight: "bold",
+                borderRadius: "15px",
+                padding: "20px",
+                fontFamily: "var(--font-poppins)",
+              },
+            });
             formRef.current?.reset();
           },
           (error: Error) => {
-            alert("Failed to send message. Please try again later.");
+            toast.error("Failed to send message. Please try again later.", {
+              duration: 3000,
+              style: {
+                background: "#ffffff",
+                color: "#dc2626",
+                fontWeight: "bold",
+                borderRadius: "15px",
+                padding: "20px",
+                fontFamily: "var(--font-poppins)",
+              },
+            });
             console.error(error);
           }
         );
@@ -36,6 +57,7 @@ function Footer() {
 
   return (
     <div className="bg-custom-blue transition-all duration-500">
+      <Toaster />
       <div className="grid md:grid-cols-2 grid-cols-1 lg:p-10 md:p-8 p-6 md:gap-16 gap-14">
         <div className="flex flex-col justify-center items-start">
           <img
