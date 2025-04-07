@@ -17,6 +17,7 @@ import { FinalCandidate } from "../components/FinalCandidate";
 import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
 import { LoadingOverlay } from "../components/LoadingOverlay";
+import { AbstainedCandidate } from "../components/Abstained";
 
 const BASE62_ALPHABET =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -124,7 +125,7 @@ const FinalListPage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-3 gap-1 place-items-center">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 justify-items-center">
         {CandidateInfo.filter((c) => myVotes.includes(c.id)).map(
           (candidate) => (
             <FinalCandidate
@@ -137,7 +138,7 @@ const FinalListPage = () => {
           )
         )}
         {[...Array(12 - myVotes.length)].map((_, index) => (
-          <div key={`abstained-${index}`}>hello</div>
+          <AbstainedCandidate key={`abstained-${index}`} />
         ))}
       </div>
 
@@ -168,6 +169,9 @@ const FinalListPage = () => {
               />
             )
           )}
+          {[...Array(12 - myVotes.length)].map((_, index) => (
+            <AbstainedCandidate key={`abstained-${index}`} />
+          ))}
         </div>
       </div>
 
