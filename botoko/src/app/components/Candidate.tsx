@@ -23,7 +23,7 @@ const Candidate = ({
   onVoteToggle,
 }: CandidateProps): React.JSX.Element => {
   return (
-    <div className="bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-lg transition-transform duration-300 ease-in-out scale-100 hover:scale-105">
+    <div className="bg-custom-blue rounded-lg flex flex-row items-center lg:h-32 h-24 justify-between w-full shadow-lg transition-transform duration-300 ease-in-out scale-100 hover:scale-105 cursor-pointer" onClick={onVoteToggle}>
       <p className="text-white font-poppines text-3xl font-bold pl-5">{id}</p>
       <div className="flex flex-row items-center w-full grow">
         <div className="relative lg:w-40 w-28 lg:h-32 h-24 mr-3 lg:mr-9">
@@ -49,7 +49,7 @@ const Candidate = ({
         </div>
       </div>
       <div className="lg:pr-3 pr-2">
-        <button onClick={onVoteToggle}>
+        <button>
           {isAdded ? (
             <HiMinusSm className="lg:text-4xl md:text-3xl text-xl text-white" />
           ) : (
