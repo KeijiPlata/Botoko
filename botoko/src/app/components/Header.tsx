@@ -9,21 +9,28 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import Logo from "../../../public/logo-botoko.svg";
-
 import { IoIosArrowDown } from "react-icons/io";
 import { MdLanguage } from "react-icons/md";
+import { useRouter } from "next/navigation";
+
 
 function Header() {
   const [language, setLanguage] = useState("English");
 
   const handleLanguageChange = (lang: string) => {
-   setLanguage(lang);
+    setLanguage(lang);
   };
-  
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/")
+  }
+
   return (
     <div className="flex justify-between items-center p-5 font-poppins w-full h-full">
-      <div>
-        <Image src={Logo} alt="Logo"  className="w-32 md:w-40 h-auto"/>
+      <div className="cursor-pointer" onClick={handleClick}>
+        <Image src={Logo} alt="Logo" className="w-32 md:w-40 h-auto" />
       </div>
       <div>
         <DropdownMenu>
@@ -33,7 +40,9 @@ function Header() {
             <IoIosArrowDown className="md:text-xl text-lg" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => handleLanguageChange("English")}>English</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleLanguageChange("English")}>
+              English
+            </DropdownMenuItem>
             {/* TODO: Remove this first temporarily, Add Filipino language to this site */}
             {/* <DropdownMenuItem onClick={() => handleLanguageChange("Filipino")}>Filipino</DropdownMenuItem>  */}
           </DropdownMenuContent>
