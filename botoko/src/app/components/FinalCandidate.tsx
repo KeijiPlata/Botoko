@@ -3,14 +3,14 @@ import React from "react";
 type FinalcandidateProps = {
   firstName: string;
   lastName: string;
-  position: string;
+  partylist: string;
   image: string;
 };
 
 export const FinalCandidate = ({
   firstName,
   lastName,
-  position,
+  partylist,
   image,
 }: FinalcandidateProps): React.JSX.Element => {
   return (
@@ -33,7 +33,7 @@ export const FinalCandidate = ({
           </span>
         </h2>
         <p className="text-gray-500 italic leading-tight text-center text-[clamp(8px,2vw,14px)]">
-          {position}
+          {partylist}
         </p>
       </div>
     </div>
