@@ -323,10 +323,10 @@
   },
   {
     "id": 41,
-    "first-name": "Martinez",
-    "last-name": "Eric",
+    "first-name": "Eric",
+    "last-name": "Martinez",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Martinez.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -334,7 +334,7 @@
     "first-name": "Doc Marites",
     "last-name": "Mata",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Mata.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -342,7 +342,7 @@
     "first-name": "Atty. Sonny",
     "last-name": "Matula",
     "partylist": "WPP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Matula.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -350,7 +350,7 @@
     "first-name": "Maza",
     "last-name": "Liza",
     "partylist": "MKBYN",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Maza.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -358,7 +358,7 @@
     "first-name": "Heidi",
     "last-name": "Mendoza",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Mendoza.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -366,7 +366,7 @@
     "first-name": "Joey",
     "last-name": "Montemayor",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Montemayor.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -374,7 +374,7 @@
     "first-name": "Subair",
     "last-name": "Mustapha",
     "partylist": "WPP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Mustapha.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -382,7 +382,7 @@
     "first-name": "Jose Jessie",
     "last-name": "Olivar",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Olivar.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -390,7 +390,7 @@
     "first-name": "Doc Willie",
     "last-name": "Ong",
     "partylist": "AKSYON",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Ong.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -398,7 +398,7 @@
     "first-name": "Manny Pacman",
     "last-name": "Pacquiao",
     "partylist": "PFP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Pacquiao.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
