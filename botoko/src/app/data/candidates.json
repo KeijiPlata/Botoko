@@ -406,7 +406,7 @@
     "first-name": "Kiko",
     "last-name": "Pangilinan",
     "partylist": "LP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Pangilinan.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -414,7 +414,7 @@
     "first-name": "Ariel Porfirio",
     "last-name": "Querubin",
     "partylist": "NP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Querubin.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -422,7 +422,7 @@
     "first-name": "Apollo",
     "last-name": "Quiboloy",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Quiboloy.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -430,7 +430,7 @@
     "first-name": "Danilo",
     "last-name": "Ramos",
     "partylist": "MKBYN",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Ramos.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -438,7 +438,7 @@
     "first-name": "Willie Wil",
     "last-name": "Revillame",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Revillame.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -446,7 +446,7 @@
     "first-name": "Atty. Vic",
     "last-name": "Rodriguez",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Rodriguez.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -454,7 +454,7 @@
     "first-name": "Nur-ana",
     "last-name": "Sahidulla",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Sahidulla.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -462,7 +462,7 @@
     "first-name": "Philip Ipe",
     "last-name": "Salvador",
     "partylist": "PDPLBN",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Salvador.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -470,7 +470,7 @@
     "first-name": "Tito",
     "last-name": "Sotto",
     "partylist": "NPC",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Sotto.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -478,7 +478,7 @@
     "first-name": "Michael Bongbong",
     "last-name": "Tapado",
     "partylist": "PM",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Tapado.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -486,7 +486,7 @@
     "first-name": "Francis Tol",
     "last-name": "Tolentino",
     "partylist": "PFP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Tolentino.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -494,7 +494,7 @@
     "first-name": "Ben Bitag",
     "last-name": "Tulfo",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/TulfoBen.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -502,7 +502,7 @@
     "first-name": "Erwin",
     "last-name": "Tulfo",
     "partylist": "LAKAS",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/TulfoErwin.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -510,7 +510,7 @@
     "first-name": "Mar Manibela",
     "last-name": "Valbuena",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Valbuena.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -518,7 +518,7 @@
     "first-name": "Leandro",
     "last-name": "Verceles",
     "partylist": "IND",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Verceles.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
@@ -526,7 +526,7 @@
     "first-name": "Camille",
     "last-name": "Villar",
     "partylist": "NP",
-    "image": "/candidates/Bondoc.png",
+    "image": "/candidates/Villar.png",
     "final-image": "/final-candidates/Bondoc.png"
   }
 ]
