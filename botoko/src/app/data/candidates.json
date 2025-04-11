@@ -391,7 +391,7 @@
     "last-name": "Ong",
     "partylist": "AKSYON",
     "image": "/candidates/Ong.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Ong.png"
   },
   {
     "id": 50,
@@ -407,7 +407,7 @@
     "last-name": "Pangilinan",
     "partylist": "LP",
     "image": "/candidates/Pangilinan.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Pangilinan.png"
   },
   {
     "id": 52,
@@ -415,7 +415,7 @@
     "last-name": "Querubin",
     "partylist": "NP",
     "image": "/candidates/Querubin.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Querubin.png"
   },
   {
     "id": 53,
@@ -423,7 +423,7 @@
     "last-name": "Quiboloy",
     "partylist": "IND",
     "image": "/candidates/Quiboloy.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Quiboloy.png"
   },
   {
     "id": 54,
@@ -431,7 +431,7 @@
     "last-name": "Ramos",
     "partylist": "MKBYN",
     "image": "/candidates/Ramos.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Ramos.png"
   },
   {
     "id": 55,
@@ -439,7 +439,7 @@
     "last-name": "Revillame",
     "partylist": "IND",
     "image": "/candidates/Revillame.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Revillame.png"
   },
   {
     "id": 56,
@@ -447,7 +447,7 @@
     "last-name": "Rodriguez",
     "partylist": "IND",
     "image": "/candidates/Rodriguez.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Rodriguez.png"
   },
   {
     "id": 57,
@@ -455,7 +455,7 @@
     "last-name": "Sahidulla",
     "partylist": "IND",
     "image": "/candidates/Sahidulla.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Sahidulla.png"
   },
   {
     "id": 58,
@@ -463,7 +463,7 @@
     "last-name": "Salvador",
     "partylist": "PDPLBN",
     "image": "/candidates/Salvador.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Salvador.png"
   },
   {
     "id": 59,
@@ -471,7 +471,7 @@
     "last-name": "Sotto",
     "partylist": "NPC",
     "image": "/candidates/Sotto.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Sotto.png"
   },
   {
     "id": 60,
@@ -479,7 +479,7 @@
     "last-name": "Tapado",
     "partylist": "PM",
     "image": "/candidates/Tapado.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Tapado.png"
   },
   {
     "id": 61,
@@ -487,7 +487,7 @@
     "last-name": "Tolentino",
     "partylist": "PFP",
     "image": "/candidates/Tolentino.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Tolentino.png"
   },
   {
     "id": 62,
@@ -495,7 +495,7 @@
     "last-name": "Tulfo",
     "partylist": "IND",
     "image": "/candidates/TulfoBen.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/TulfoBen.png"
   },
   {
     "id": 63,
@@ -503,7 +503,7 @@
     "last-name": "Tulfo",
     "partylist": "LAKAS",
     "image": "/candidates/TulfoErwin.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/TulfoErwin.png"
   },
   {
     "id": 64,
@@ -511,7 +511,7 @@
     "last-name": "Valbuena",
     "partylist": "IND",
     "image": "/candidates/Valbuena.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Valbuena.png"
   },
   {
     "id": 65,
@@ -519,7 +519,7 @@
     "last-name": "Verceles",
     "partylist": "IND",
     "image": "/candidates/Verceles.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Verceles.png"
   },
   {
     "id": 66,
@@ -527,6 +527,6 @@
     "last-name": "Villar",
     "partylist": "NP",
     "image": "/candidates/Villar.png",
-    "final-image": "/final-candidates/Bondoc.png"
+    "final-image": "/final-candidates/Villar.png"
   }
 ]
