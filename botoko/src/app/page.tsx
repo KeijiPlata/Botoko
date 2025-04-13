@@ -7,6 +7,8 @@ import smheroIphone from "../../public/iphone-mockup/smIphoneCandidates.png";
 import CreateCustomize from "../../public/key-features/CreateCustomize.svg";
 import NoAccount from "../../public/key-features/NoAccount.svg";
 import ShareSave from "../../public/key-features/Sharesave.svg";
+import VoteSmart from "../../public/iphone-mockup/VoteSmart.svg";
+import EffortlessSharing from "../../public/iphone-mockup/EffortlessSharing.svg";
 import Image from "next/image";
 
 export default function Home() {
@@ -36,9 +38,10 @@ export default function Home() {
 
   return (
     <div className="w-full flex flex-col font-poppins gap-10 relative overflow-hidden">
+      {/* Hero Section */}
       <div className="z-10 flex flex-col justify-center items-center gap-5 mb-16 md:mb-1 lg:mb-5 px-5">
         <div className="text-center space-y-2">
-          <p className="text-lg font-semibold leading-none">
+          <p className="text-lg font-semibold leading-none text-custom-blue">
             Your Voice matters.
           </p>
           <h2 className="md:text-5xl text-3xl font-semibold text-custom-blue leading-none">
@@ -74,6 +77,7 @@ export default function Home() {
         />
       </div>
 
+      {/* Key Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-1 place-items-center h-full mt-16 md:mt-0">
         {keyFeature.map((feature, index) => (
           <div
@@ -96,6 +100,40 @@ export default function Home() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Benefits Section */}
+      <div className="flex flex-col items-center justify-center gap-10 w-full px-5">
+        <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
+          <div className="flex flex-col items-center justify-center">
+            <Image src={VoteSmart} alt="Icon for VoteSmart" />
+          </div>
+          <div className="flex flex-col items-center justify-center gap-4 lg:px-12 px-5">
+            <h2 className="md:text-5xl text-3xl md:text-start text-center  text-custom-blue font-semibold md:self-start self-center">
+              Vote Smart
+            </h2>
+            <p className="text-gray-500 text-justify">
+              Take control of your choices by exploring, selecting, and
+              organizing candidates that align with your values—so you can vote
+              with confidence.
+            </p>
+          </div>
+        </div>
+        <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
+          <div className="flex flex-col items-center justify-center gap-4 lg:px-12 px-5 md:order-1 order-2">
+            <h2 className="md:text-5xl text-3xl md:text-start text-center text-custom-blue font-semibold md:self-start self-center">
+              Effortless Sharing
+            </h2>
+            <p className="text-gray-500 text-justify">
+              Easily customize your senatorial list, then share it with friends
+              or save it for later. No accounts, no hassle—just smooth and
+              simple.
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center md:order-2 order-1">
+            <Image src={EffortlessSharing} alt="Icon for VoteSmart" />
+          </div>
+        </div>
       </div>
     </div>
   );
