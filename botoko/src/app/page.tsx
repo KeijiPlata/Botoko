@@ -186,7 +186,6 @@ export default function Home() {
 
       {/* Benefits Section */}
       <div className="flex flex-col items-center justify-center gap-10 w-full px-5">
-        {/* Vote Smart Section */}
         <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -216,7 +215,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Effortless Sharing Section */}
         <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -284,7 +282,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="flex flex-col items-center justify-center w-full px-5 "
+        className="flex flex-col items-center justify-center w-full px-5 mb-7"
       >
         <h2 className="text-custom-blue text-3xl md:text-5xl font-semibold mb-6 text-center">
           FAQ
