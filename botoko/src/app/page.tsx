@@ -10,6 +10,7 @@ import ShareSave from "../../public/key-features/Sharesave.svg";
 import VoteSmart from "../../public/iphone-mockup/VoteSmart.svg";
 import EffortlessSharing from "../../public/iphone-mockup/EffortlessSharing.svg";
 import Steps from "../../public/iphone-mockup/Steps.svg";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import {
   Accordion,
@@ -104,7 +105,13 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col font-poppins gap-10 relative overflow-hidden">
       {/* Hero Section */}
-      <div className="z-10 flex flex-col justify-center items-center gap-5 mb-16 md:mb-1 lg:mb-5 px-5">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="z-10 flex flex-col justify-center items-center gap-5 mb-16 md:mb-1 lg:mb-5 px-5"
+      >
         <div className="text-center space-y-2">
           <p className="text-lg font-semibold leading-none text-custom-blue">
             Your Voice matters.
@@ -123,9 +130,15 @@ export default function Home() {
         >
           Start your list
         </Button>
-      </div>
+      </motion.div>
 
-      <div className="relative flex justify-center items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative flex justify-center items-center"
+      >
         <div className="bg-custom-blue w-full max-w-6xl h-[200px] rounded-3xl  md:absolute  md:top-1/2 md:-translate-y-1/2 md:h-[55%] md:rounded-3xl z-0" />
         <Image
           src={heroIphone}
@@ -140,13 +153,17 @@ export default function Home() {
           className="absolute -top-20 z-10 w-[80%] max-w-[300px] h-auto object-contain md:hidden"
           priority
         />
-      </div>
+      </motion.div>
 
       {/* Key Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-1 place-items-center h-full mt-16 md:mt-0">
         {keyFeature.map((feature, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
             className="flex flex-col gap-3 items-center justify-evenly text-center px-10 md:px-4 h-full"
           >
             <Image
@@ -163,18 +180,32 @@ export default function Home() {
                 {feature.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
       {/* Benefits Section */}
       <div className="flex flex-col items-center justify-center gap-10 w-full px-5">
+        {/* Vote Smart Section */}
         <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
-          <div className="flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center"
+          >
             <Image src={VoteSmart} alt="Icon for VoteSmart" />
-          </div>
-          <div className="flex flex-col items-center justify-center gap-4 lg:px-12 px-5">
-            <h2 className="md:text-5xl text-3xl md:text-start text-center  text-custom-blue font-semibold md:self-start self-center">
+          </motion.div>
+
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center gap-4 lg:px-12 px-5"
+          >
+            <h2 className="md:text-5xl text-3xl md:text-start text-center text-custom-blue font-semibold md:self-start self-center">
               Vote Smart
             </h2>
             <p className="text-gray-500 text-justify">
@@ -182,10 +213,18 @@ export default function Home() {
               organizing candidates that align with your values—so you can vote
               with confidence.
             </p>
-          </div>
+          </motion.div>
         </div>
+
+        {/* Effortless Sharing Section */}
         <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
-          <div className="flex flex-col items-center justify-center gap-4 lg:px-12 px-5 md:order-1 order-2">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center gap-4 lg:px-12 px-5 md:order-1 order-2"
+          >
             <h2 className="md:text-5xl text-3xl md:text-start text-center text-custom-blue font-semibold md:self-start self-center">
               Effortless Sharing
             </h2>
@@ -194,15 +233,28 @@ export default function Home() {
               or save it for later. No accounts, no hassle—just smooth and
               simple.
             </p>
-          </div>
-          <div className="flex flex-col items-center justify-center md:order-2 order-1">
-            <Image src={EffortlessSharing} alt="Icon for VoteSmart" />
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center justify-center md:order-2 order-1"
+          >
+            <Image src={EffortlessSharing} alt="Icon for Effortless Sharing" />
+          </motion.div>
         </div>
       </div>
 
       {/* Steps Section */}
-      <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5 bg-custom-blue rounded-3xl px-5 md:px-10 lg:px-16 py-10">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="grid md:grid-cols-2 grid-cols-1 w-full gap-5 bg-custom-blue rounded-3xl px-5 md:px-10 lg:px-16 py-10"
+      >
         <div className="md:flex justify-center items-center hidden">
           <Image src={Steps} alt="Image for Botoko Steps" />
         </div>
@@ -224,10 +276,16 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* FAQ Section */}
-      <div className="flex flex-col items-center justify-center w-full px-5 ">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex flex-col items-center justify-center w-full px-5 "
+      >
         <h2 className="text-custom-blue text-3xl md:text-5xl font-semibold mb-6 text-center">
           FAQ
         </h2>
@@ -235,13 +293,15 @@ export default function Home() {
           <Accordion type="single" collapsible className="w-full space-y-2">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="font-semibold text-lg">{faq.question}</AccordionTrigger>
+                <AccordionTrigger className="font-semibold text-lg">
+                  {faq.question}
+                </AccordionTrigger>
                 <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
