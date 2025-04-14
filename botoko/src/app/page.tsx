@@ -11,6 +11,12 @@ import VoteSmart from "../../public/iphone-mockup/VoteSmart.svg";
 import EffortlessSharing from "../../public/iphone-mockup/EffortlessSharing.svg";
 import Steps from "../../public/iphone-mockup/Steps.svg";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
   const router = useRouter();
@@ -55,6 +61,43 @@ export default function Home() {
       title: "Start the Conversation",
       description:
         "Encourage discussions by sharing your list with friends and family to promote informed voting.Easily pick and arrange your senatorial candidates.",
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "Do I need to sign up?",
+      answer:
+        "No, Botoko lets you create and share your list instantly without an account.",
+    },
+    {
+      question: "Is this an official election tool?",
+      answer:
+        "No, this is a personal tool to help you organize your senatorial picks before election day.",
+    },
+    {
+      question: "Can I edit my list later?",
+      answer:
+        "Yes, simply update your selections, and a new shareable link will be generated.",
+    },
+    {
+      question: "How do I share my list?",
+      answer:
+        "You can copy the direct link or download your list as a image to share on social media.",
+    },
+    {
+      question: "Is my list public?",
+      answer:
+        "No, your list is only accessible to those you share the link with.",
+    },
+    {
+      question: "Can I use this on mobile?",
+      answer: "Yes! Botoko is fully responsive and works on any device.",
+    },
+    {
+      question: "Does this influence my actual vote?",
+      answer:
+        "No, this tool is for personal planning only. Your official vote is cast at the polling station.",
     },
   ];
 
@@ -180,6 +223,23 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="flex flex-col items-center justify-center w-full px-5 ">
+        <h2 className="text-custom-blue text-3xl md:text-5xl font-semibold mb-6 text-center">
+          FAQ
+        </h2>
+        <div className="w-full max-w-6xl font-poppins">
+          <Accordion type="single" collapsible className="w-full space-y-2">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="font-semibold text-lg">{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>
