@@ -9,6 +9,7 @@ import NoAccount from "../../public/key-features/NoAccount.svg";
 import ShareSave from "../../public/key-features/Sharesave.svg";
 import VoteSmart from "../../public/iphone-mockup/VoteSmart.svg";
 import EffortlessSharing from "../../public/iphone-mockup/EffortlessSharing.svg";
+import Steps from "../../public/iphone-mockup/Steps.svg";
 import Image from "next/image";
 
 export default function Home() {
@@ -132,6 +133,58 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center justify-center md:order-2 order-1">
             <Image src={EffortlessSharing} alt="Icon for VoteSmart" />
+          </div>
+        </div>
+      </div>
+
+      {/* Steps */}
+      <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5 bg-custom-blue rounded-3xl px-5 md:px-10 lg:px-16 py-10">
+        <div className="md:flex justify-center items-center hidden">
+          <Image src={Steps} alt="Image for Botoko Steps" />
+        </div>
+        <div className="flex flex-col gap-8 items-center justify-center text-white">
+          <h1 className="text-3xl md:text-5xl font-semibold text-center md:text-left w-full">
+            How it works?
+          </h1>
+
+          <div className="flex flex-col self-start gap-2">
+            <h2 className="text-2xl lg:text-3xl font-semibold flex items-center gap-2">
+              <span className="bg-white text-custom-blue rounded-full font-bold w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-xl md:text-2xl">
+                1
+              </span>
+              Pick your Candidates
+            </h2>
+            <p className="text-justify lg:px-12 px-5 md:px-2">
+              Browse the list of senatorial candidates, select your preferred
+              ones, and finalize your vote. Once done, your customized list will
+              be generated—ready to share.
+            </p>
+          </div>
+
+          <div className="flex flex-col self-start gap-2">
+            <h2 className="text-2xl lg:text-3xl font-semibold flex items-center gap-2">
+              <span className="bg-white text-custom-blue rounded-full font-bold w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-xl md:text-2xl">
+                2
+              </span>
+              Save & Share
+            </h2>
+            <p className="text-justify lg:px-12 px-5 md:px-2">
+              Easily share your list on social media through a unique link or as
+              a downloadable PNG image. No sign-up required, just share and go!
+            </p>
+          </div>
+
+          <div className="flex flex-col self-start gap-2">
+            <h2 className="text-2xl lg:text-3xl font-semibold flex items-center gap-2">
+              <span className="bg-white text-custom-blue rounded-full font-bold w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-xl md:text-2xl">
+                3
+              </span>
+              Start the Conversation
+            </h2>
+            <p className="text-justify lg:px-12 px-5 md:px-2">
+              Encourage discussions by sharing your list with friends and family
+              to promote informed voting.
+            </p>
           </div>
         </div>
       </div>
