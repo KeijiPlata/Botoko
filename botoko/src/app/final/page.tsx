@@ -7,18 +7,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import baseX from "base-x";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
 import { IoEllipsisVertical } from "react-icons/io5";
 import logo from "../../../public/logo-botoko-with-tagline.svg";
+import { AbstainedCandidate } from "../components/Abstained";
 import { FinalCandidate } from "../components/FinalCandidate";
+import { LoadingOverlay } from "../components/LoadingOverlay";
 import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
-import { LoadingOverlay } from "../components/LoadingOverlay";
-import { AbstainedCandidate } from "../components/Abstained";
-import { Suspense } from "react";
 
 const BASE62_ALPHABET =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -40,12 +39,13 @@ const FinalListPage = () => {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [myVotes, setMyVotes] = useState<number[]>([]);
   const captureRef = useRef<HTMLDivElement | null>(null);
+  const [searchParamsLoaded, setSearchParamsLoaded] = useState(false);
 
   useEffect(() => {
-    const encodedVotes = searchParams.get("v") || "";
+    const params = new URLSearchParams(window.location.search);
+    const encodedVotes = params.get("v") || "";
 
     if (encodedVotes) {
       const votesArray = decodeCandidates(encodedVotes);
@@ -57,7 +57,11 @@ const FinalListPage = () => {
         setMyVotes(JSON.parse(storedVotes));
       }
     }
-  }, [searchParams]);
+
+    setSearchParamsLoaded(true);
+  }, []);
+
+  if (!searchParamsLoaded) return <LoadingOverlay />;
 
   const editVotes = () => {
     localStorage.setItem("myVotes", JSON.stringify(myVotes));
