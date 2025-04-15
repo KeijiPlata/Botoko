@@ -18,6 +18,7 @@ import { ShareDialog } from "../components/ShareDialog";
 import CandidateInfo from "../data/candidates.json";
 import { LoadingOverlay } from "../components/LoadingOverlay";
 import { AbstainedCandidate } from "../components/Abstained";
+import { Suspense } from "react";
 
 const BASE62_ALPHABET =
   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -64,100 +65,69 @@ const FinalListPage = () => {
   };
 
   return (
-    <div className="pb-4 w-full flex flex-col gap-3">
-      {isCapturing && <LoadingOverlay />}
-      <div className="w-full flex items-center justify-center">
-        <div className="flex-1"></div>
-        <img
-          src={logo.src}
-          className="w-64 md:w-72 lg:w-80 h-auto"
-          alt="logo"
-          crossOrigin="anonymous"
-        />
+    <Suspense fallback={<LoadingOverlay />}>
+      <div className="pb-4 w-full flex flex-col gap-3">
+        {isCapturing && <LoadingOverlay />}
+        <div className="w-full flex items-center justify-center">
+          <div className="flex-1"></div>
+          <img
+            src={logo.src}
+            className="w-64 md:w-72 lg:w-80 h-auto"
+            alt="logo"
+            crossOrigin="anonymous"
+          />
 
-        <div className="hidden sm:flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
-          {!isCapturing && (
-            <>
-              <Button
-                onClick={() => setIsShareOpen(true)}
-                variant="ghost"
-                className="text-lg text-gray-500"
-              >
-                <IoMdShare className="text-2xl cursor-pointer text-gray-500" />
-                Share
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-lg text-gray-500"
-                onClick={editVotes}
-              >
-                <FaEdit className="text-2xl cursor-pointer text-gray-500" />
-                Edit
-              </Button>
-            </>
-          )}
+          <div className="hidden sm:flex flex-1 justify-end lg:gap-3 md:gap-1 font-poppins">
+            {!isCapturing && (
+              <>
+                <Button
+                  onClick={() => setIsShareOpen(true)}
+                  variant="ghost"
+                  className="text-lg text-gray-500"
+                >
+                  <IoMdShare className="text-2xl cursor-pointer text-gray-500" />
+                  Share
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="text-lg text-gray-500"
+                  onClick={editVotes}
+                >
+                  <FaEdit className="text-2xl cursor-pointer text-gray-500" />
+                  Edit
+                </Button>
+              </>
+            )}
+          </div>
+
+          <div className="flex sm:hidden flex-1 justify-end font-poppins">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-gray-500">
+                  <IoEllipsisVertical className="text-2xl cursor-pointer text-gray-500" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem
+                  className="flex items-center gap-2 text-gray-500"
+                  onClick={() => setIsShareOpen(true)}
+                >
+                  <IoMdShare className="text-xl text-gray-500" />
+                  Share
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="flex items-center gap-2 text-gray-500"
+                  onClick={editVotes}
+                >
+                  <FaEdit className="text-xl text-gray-500" />
+                  Edit
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
 
-        <div className="flex sm:hidden flex-1 justify-end font-poppins">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="text-gray-500">
-                <IoEllipsisVertical className="text-2xl cursor-pointer text-gray-500" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem
-                className="flex items-center gap-2 text-gray-500"
-                onClick={() => setIsShareOpen(true)}
-              >
-                <IoMdShare className="text-xl text-gray-500" />
-                Share
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="flex items-center gap-2 text-gray-500"
-                onClick={editVotes}
-              >
-                <FaEdit className="text-xl text-gray-500" />
-                Edit
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 justify-items-center">
-        {CandidateInfo.filter((c) => myVotes.includes(c.id)).map(
-          (candidate) => (
-            <FinalCandidate
-              key={candidate.id}
-              firstName={candidate["first-name"]}
-              lastName={candidate["last-name"]}
-              partylist={candidate.partylist}
-              image={candidate["final-image"]}
-            />
-          )
-        )}
-        {[...Array(12 - myVotes.length)].map((_, index) => (
-          <AbstainedCandidate key={`abstained-${index}`} />
-        ))}
-      </div>
-
-      <div
-        ref={captureRef}
-        className={`fixed top-0 left-0 w-[1200px] h-[600px] bg-white p-12 flex flex-col gap-4 items-center justify-center transition-opacity duration-200  ${
-          isCapturing
-            ? "opacity-100 z-50 pointer-events-auto"
-            : "opacity-0 z-[-10] pointer-events-none"
-        }`}
-      >
-        <img
-          src={logo.src}
-          alt="logo"
-          className="w-80 h-auto self-center mb-2"
-          crossOrigin="anonymous"
-        />
-
-        <div className="grid grid-cols-6 gap-y-3 gap-1 place-items-center">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 justify-items-center">
           {CandidateInfo.filter((c) => myVotes.includes(c.id)).map(
             (candidate) => (
               <FinalCandidate
@@ -173,15 +143,48 @@ const FinalListPage = () => {
             <AbstainedCandidate key={`abstained-${index}`} />
           ))}
         </div>
-      </div>
 
-      <ShareDialog
-        isOpen={isShareOpen}
-        onClose={() => setIsShareOpen(false)}
-        captureRef={captureRef}
-        setIsCapturing={setIsCapturing}
-      />
-    </div>
+        <div
+          ref={captureRef}
+          className={`fixed top-0 left-0 w-[1200px] h-[600px] bg-white p-12 flex flex-col gap-4 items-center justify-center transition-opacity duration-200  ${
+            isCapturing
+              ? "opacity-100 z-50 pointer-events-auto"
+              : "opacity-0 z-[-10] pointer-events-none"
+          }`}
+        >
+          <img
+            src={logo.src}
+            alt="logo"
+            className="w-80 h-auto self-center mb-2"
+            crossOrigin="anonymous"
+          />
+
+          <div className="grid grid-cols-6 gap-y-3 gap-1 place-items-center">
+            {CandidateInfo.filter((c) => myVotes.includes(c.id)).map(
+              (candidate) => (
+                <FinalCandidate
+                  key={candidate.id}
+                  firstName={candidate["first-name"]}
+                  lastName={candidate["last-name"]}
+                  partylist={candidate.partylist}
+                  image={candidate["final-image"]}
+                />
+              )
+            )}
+            {[...Array(12 - myVotes.length)].map((_, index) => (
+              <AbstainedCandidate key={`abstained-${index}`} />
+            ))}
+          </div>
+        </div>
+
+        <ShareDialog
+          isOpen={isShareOpen}
+          onClose={() => setIsShareOpen(false)}
+          captureRef={captureRef}
+          setIsCapturing={setIsCapturing}
+        />
+      </div>
+    </Suspense>
   );
 };
 
