@@ -50,10 +50,10 @@ function CandidatesPage() {
   const filteredCandidates = CandidateInfo.filter((candidate) => {
     const fullName =
       `${candidate["first-name"]} ${candidate["last-name"]}`.toLowerCase();
-    const position = candidate.position.toLowerCase();
+    const partylist = candidate.partylist.toLowerCase();
     return (
       fullName.includes(searchQuery.toLowerCase()) ||
-      position.includes(searchQuery.toLowerCase())
+      partylist.includes(searchQuery.toLowerCase())
     );
   });
 
@@ -171,7 +171,7 @@ function CandidatesPage() {
               />
               <Input
                 type="text"
-                placeholder="Search by name or position..."
+                placeholder="Search by name or partylist..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -215,7 +215,7 @@ function CandidatesPage() {
                     id={candidate.id}
                     firstName={candidate["first-name"]}
                     lastName={candidate["last-name"]}
-                    position={candidate.position}
+                    partylist={candidate.partylist}
                     image={candidate.image}
                     isAdded={myVotes.includes(candidate.id)}
                     onVoteToggle={() => toggleVote(candidate.id)}
@@ -250,7 +250,7 @@ function CandidatesPage() {
                       id={candidate.id}
                       firstName={candidate["first-name"]}
                       lastName={candidate["last-name"]}
-                      position={candidate.position}
+                      partylist={candidate.partylist}
                       image={candidate.image}
                       isAdded={true}
                       onVoteToggle={() => toggleVote(candidate.id)}

@@ -3,7 +3,7 @@
     "id": 1,
     "first-name": "Benhur",
     "last-name": "Abalos",
-    "position": "Former DILG secretary",
+    "partylist": "PFP",
     "image": "/candidates/Abalos.png",
     "final-image": "/final-candidates/Abalos.png"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "first-name": "Jerome",
     "last-name": "Adonis",
-    "position": "Candidate",
+    "partylist": "MKBYN",
     "image": "/candidates/Adonis.png",
     "final-image": "/final-candidates/Adonis.png"
   },
@@ -19,15 +19,15 @@
     "id": 3,
     "first-name": "Wilson",
     "last-name": "Amad",
-    "position": "Candidate",
+    "partylist": "IND",
     "image": "/candidates/Amad.png",
     "final-image": "/final-candidates/Amad.png"
   },
   {
     "id": 4,
-    "first-name": "Jocelyn",
+    "first-name": "Nars Alyn",
     "last-name": "Andamo",
-    "position": "Candidate",
+    "partylist": "MKBYN",
     "image": "/candidates/Andamo.png",
     "final-image": "/final-candidates/Andamo.png"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "first-name": "Bam",
     "last-name": "Aquino",
-    "position": "Former Senator",
+    "partylist": "KNP",
     "image": "/candidates/Aquino.png",
     "final-image": "/final-candidates/Aquino.png"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "first-name": "Ronnel",
     "last-name": "Arambulo",
-    "position": "Candidate",
+    "partylist": "MKBYN",
     "image": "/candidates/Arambulo.png",
     "final-image": "/final-candidates/Arambulo.png"
 
@@ -52,7 +52,7 @@
     "id": 7,
     "first-name": "Ernesto",
     "last-name": "Arellano",
-    "position": "Candidate",
+    "partylist": "KTPNAN",
     "image": "/candidates/Arellano.png",
     "final-image": "/final-candidates/Arellano.png"
 
@@ -61,7 +61,7 @@
     "id": 8,
     "first-name": "Roberto",
     "last-name": "Ballon",
-    "position": "Candidate",
+    "partylist": "IND",
     "image": "/candidates/Ballon.png",
     "final-image": "/final-candidates/Ballon.png"
   },
@@ -69,7 +69,7 @@
     "id": 9,
     "first-name": "Abby",
     "last-name": "Binay",
-    "position": "Makati Mayor",
+    "partylist": "NPC",
     "image": "/candidates/Binay.png",
     "final-image": "/final-candidates/Binay.png"
   },
@@ -77,90 +77,456 @@
     "id": 10,
     "first-name": "Jimmy",
     "last-name": "Bondoc",
-    "position": "Celebrity",
+    "partylist": "PDPLBN",
     "image": "/candidates/Bondoc.png",
     "final-image": "/final-candidates/Bondoc.png"
   },
   {
     "id": 11,
-    "first-name": "Benhur",
-    "last-name": "Abalos",
-    "position": "Former DILG secretary",
-    "image": "/candidates/Abalos.png",
-    "final-image": "/final-candidates/Abalos.png"
+    "first-name": "Ramon, Jr.",
+    "last-name": "Bong Revilla",
+    "partylist": "LAKAS",
+    "image": "/candidates/BongRevilla.png",
+    "final-image": "/final-candidates/BongRevilla.png"
   },
   {
     "id": 12,
-    "first-name": "Jerome",
-    "last-name": "Adonis",
-    "position": "Candidate",
-    "image": "/candidates/Adonis.png",
-    "final-image": "/final-candidates/Adonis.png"
+    "first-name": "Colonel",
+    "last-name": "Bosita",
+    "partylist": "IND",
+    "image": "/candidates/Bosita.png",
+    "final-image": "/final-candidates/Bosita.png"
   },
   {
     "id": 13,
-    "first-name": "Wilson",
-    "last-name": "Amad",
-    "position": "Candidate",
-    "image": "/candidates/Amad.png",
-    "final-image": "/final-candidates/Amad.png"
+    "first-name": "Arlene",
+    "last-name": "Brosas",
+    "partylist": "MKBYN",
+    "image": "/candidates/Brosas.png",
+    "final-image": "/final-candidates/Brosas.png"
   },
   {
     "id": 14,
-    "first-name": "Jocelyn",
-    "last-name": "Andamo",
-    "position": "Candidate",
-    "image": "/candidates/Andamo.png",
-    "final-image": "/final-candidates/Andamo.png"
+    "first-name": "Roy",
+    "last-name": "Cabonegro",
+    "partylist": "DPP",
+    "image": "/candidates/Cabonegro.png",
+    "final-image": "/final-candidates/Cabonegro.png"
   },
   {
     "id": 15,
-    "first-name": "Bam",
-    "last-name": "Aquino",
-    "position": "Former Senator",
-    "image": "/candidates/Aquino.png",
-    "final-image": "/final-candidates/Aquino.png"
+    "first-name": "Allen",
+    "last-name": "Capuyan",
+    "partylist": "PPP",
+    "image": "/candidates/Capuyan.png",
+    "final-image": "/final-candidates/Capuyan.png"
   },
   {
     "id": 16,
-    "first-name": "Ronnel",
-    "last-name": "Arambulo",
-    "position": "Candidate",
-    "image": "/candidates/Arambulo.png",
-    "final-image": "/final-candidates/Arambulo.png"
-
+    "first-name": "Teddy",
+    "last-name": "Casiño",
+    "partylist": "MKBYN",
+    "image": "/candidates/Casino.png",
+    "final-image": "/final-candidates/Casino.png"
   },
   {
     "id": 17,
-    "first-name": "Ernesto",
-    "last-name": "Arellano",
-    "position": "Candidate",
-    "image": "/candidates/Arellano.png",
-    "final-image": "/final-candidates/Arellano.png"
-
+    "first-name": "Teacher France",
+    "last-name": "Castro",
+    "partylist": "MKBYN",
+    "image": "/candidates/Castro.png",
+    "final-image": "/final-candidates/Castro.png"
   },
   {
     "id": 18,
-    "first-name": "Roberto",
-    "last-name": "Ballon",
-    "position": "Candidate",
-    "image": "/candidates/Ballon.png",
-    "final-image": "/final-candidates/Ballon.png"
+    "first-name": "Pia",
+    "last-name": "Cayetano",
+    "partylist": "NP",
+    "image": "/candidates/Cayetano.png",
+    "final-image": "/final-candidates/Cayetano.png"
   },
   {
     "id": 19,
-    "first-name": "Abby",
-    "last-name": "Binay",
-    "position": "Makati Mayor",
-    "image": "/candidates/Binay.png",
-    "final-image": "/final-candidates/Binay.png"
+    "first-name": "David",
+    "last-name": "D'Angelo",
+    "partylist": "BUNYOG",
+    "image": "/candidates/Dangelo.png",
+    "final-image": "/final-candidates/Dangelo.png"
   },
   {
     "id": 20,
-    "first-name": "Jimmy",
-    "last-name": "Bondoc",
-    "position": "Celebrity",
-    "image": "/candidates/Bondoc.png",
-    "final-image": "/final-candidates/Bondoc.png"
-  } 
+    "first-name": "Attorney Angelo",
+    "last-name": "De Alban",
+    "partylist": "IND",
+    "image": "/candidates/DeAlban.png",
+    "final-image": "/final-candidates/DeAlban.png"
+  },
+  {
+    "id": 21,
+    "first-name": "Ka Leody",
+    "last-name": "De Guzman",
+    "partylist": "PLM",
+    "image": "/candidates/DeGuzman.png",
+    "final-image": "/final-candidates/DeGuzman.png"
+  },
+  {
+    "id": 22,
+    "first-name": "Bato",
+    "last-name": "Dela Rosa",
+    "partylist": "PDPLBN",
+    "image": "/candidates/DelaRosa.png",
+    "final-image": "/final-candidates/DelaRosa.png"
+  },
+  {
+    "id": 23,
+    "first-name": "Nanay Mimi",
+    "last-name": "Doringo",
+    "partylist": "MKBYN",
+    "image": "/candidates/Doringo.png",
+    "final-image": "/final-candidates/Doringo.png"
+  },
+  {
+    "id": 24,
+    "first-name": "Arnel",
+    "last-name": "Escobal",
+    "partylist": "PM",
+    "image": "/candidates/Escobal.png",
+    "final-image": "/final-candidates/Escobal.png"
+  },
+  {
+    "id": 25,
+    "first-name": "Luke",
+    "last-name": "Espiritu",
+    "partylist": "PLM",
+    "image": "/candidates/Espiritu.png",
+    "final-image": "/final-candidates/Espiritu.png"
+  },
+  {
+    "id": 26,
+    "first-name": "Mody Piston",
+    "last-name": "Floranda",
+    "partylist": "MKBYN",
+    "image": "/candidates/Floranda.png",
+    "final-image": "/final-candidates/Floranda.png"
+  },
+  {
+    "id": 27,
+    "first-name": "Marc Louie",
+    "last-name": "Gamboa",
+    "partylist": "IND",
+    "image": "/candidates/Gamboa.png",
+    "final-image": "/final-candidates/Gamboa.png"
+  },
+  {
+    "id": 28,
+    "first-name": "Bong Go",
+    "last-name": "Go",
+    "partylist": "PDPLBN",
+    "image": "/candidates/Go.png",
+    "final-image": "/final-candidates/Go.png"
+  },
+  {
+    "id": 29,
+    "first-name": "Norberto",
+    "last-name": "Gonzales",
+    "partylist": "PDSP",
+    "image": "/candidates/Gonzales.png",
+    "final-image": "/final-candidates/Gonzales.png"
+  },
+  {
+    "id": 30,
+    "first-name": "Jayvee",
+    "last-name": "Hinlo",
+    "partylist": "PDPLBN",
+    "image": "/candidates/Hinlo.png",
+    "final-image": "/final-candidates/Hinlo.png"
+  },
+  {
+    "id": 31,
+    "first-name": "Gringo",
+    "last-name": "Honasan",
+    "partylist": "RP",
+    "image": "/candidates/Honasan.png",
+    "final-image": "/final-candidates/Honasan.png"
+  },
+  {
+    "id": 32,
+    "first-name": "Relly, Jr.",
+    "last-name": "Jose",
+    "partylist": "KBL",
+    "image": "/candidates/Jose.png",
+    "final-image": "/final-candidates/Jose.png"
+  },
+  {
+    "id": 33,
+    "first-name": "Ping",
+    "last-name": "Lacson",
+    "partylist": "IND",
+    "image": "/candidates/Lacson.png",
+    "final-image": "/final-candidates/Lacson.png"
+  },
+  {
+    "id": 34,
+    "first-name": "Raul",
+    "last-name": "Lambino",
+    "partylist": "PDPLBN",
+    "image": "/candidates/Lambino.png",
+    "final-image": "/final-candidates/Lambino.png"
+  },
+  {
+    "id": 35,
+    "first-name": "Lito",
+    "last-name": "Lapid",
+    "partylist": "NPC",
+    "image": "/candidates/Lapid.png",
+    "final-image": "/final-candidates/Lapid.png"
+  },
+  {
+    "id": 36,
+    "first-name": "Manoy Wilbert",
+    "last-name": "Lee",
+    "partylist": "AKSYON",
+    "image": "/candidates/Lee.png",
+    "final-image": "/final-candidates/Lee.png"
+  },
+  {
+    "id": 37,
+    "first-name": "Amirah",
+    "last-name": "Lidasan",
+    "partylist": "MKBYN",
+    "image": "/candidates/Lidasan.png",
+    "final-image": "/final-candidates/Lidasan.png"
+  },
+  {
+    "id": 38,
+    "first-name": "Rodante",
+    "last-name": "Marcoleta",
+    "partylist": "IND",
+    "image": "/candidates/Marcoleta.png",
+    "final-image": "/final-candidates/Marcoleta.png"
+  },
+  {
+    "id": 39,
+    "first-name": "Imee R.",
+    "last-name": "Marcos",
+    "partylist": "NP",
+    "image": "/candidates/Marcos.png",
+    "final-image": "/final-candidates/Marcos.png"
+  },
+  {
+    "id": 40,
+    "first-name": "Norman",
+    "last-name": "Marquez",
+    "partylist": "IND",
+    "image": "/candidates/Marquez.png",
+    "final-image": "/final-candidates/Marquez.png"
+  },
+  {
+    "id": 41,
+    "first-name": "Eric",
+    "last-name": "Martinez",
+    "partylist": "IND",
+    "image": "/candidates/Martinez.png",
+    "final-image": "/final-candidates/Martinez.png"
+  },
+  {
+    "id": 42,
+    "first-name": "Doc Marites",
+    "last-name": "Mata",
+    "partylist": "IND",
+    "image": "/candidates/Mata.png",
+    "final-image": "/final-candidates/Mata.png"
+  },
+  {
+    "id": 43,
+    "first-name": "Atty. Sonny",
+    "last-name": "Matula",
+    "partylist": "WPP",
+    "image": "/candidates/Matula.png",
+    "final-image": "/final-candidates/Matula.png"
+  },
+  {
+    "id": 44,
+    "first-name": "Maza",
+    "last-name": "Liza",
+    "partylist": "MKBYN",
+    "image": "/candidates/Maza.png",
+    "final-image": "/final-candidates/Maza.png"
+  },
+  {
+    "id": 45,
+    "first-name": "Heidi",
+    "last-name": "Mendoza",
+    "partylist": "IND",
+    "image": "/candidates/Mendoza.png",
+    "final-image": "/final-candidates/Mendoza.png"
+  },
+  {
+    "id": 46,
+    "first-name": "Joey",
+    "last-name": "Montemayor",
+    "partylist": "IND",
+    "image": "/candidates/Montemayor.png",
+    "final-image": "/final-candidates/Montemayor.png"
+  },
+  {
+    "id": 47,
+    "first-name": "Subair",
+    "last-name": "Mustapha",
+    "partylist": "WPP",
+    "image": "/candidates/Mustapha.png",
+    "final-image": "/final-candidates/Mustapha.png"
+  },
+  {
+    "id": 48,
+    "first-name": "Jose Jessie",
+    "last-name": "Olivar",
+    "partylist": "IND",
+    "image": "/candidates/Olivar.png",
+    "final-image": "/final-candidates/Olivar.png"
+  },
+  {
+    "id": 49,
+    "first-name": "Doc Willie",
+    "last-name": "Ong",
+    "partylist": "AKSYON",
+    "image": "/candidates/Ong.png",
+    "final-image": "/final-candidates/Ong.png"
+  },
+  {
+    "id": 50,
+    "first-name": "Manny Pacman",
+    "last-name": "Pacquiao",
+    "partylist": "PFP",
+    "image": "/candidates/Pacquiao.png",
+    "final-image": "/final-candidates/Pacquiao.png"
+  },
+  {
+    "id": 51,
+    "first-name": "Kiko",
+    "last-name": "Pangilinan",
+    "partylist": "LP",
+    "image": "/candidates/Pangilinan.png",
+    "final-image": "/final-candidates/Pangilinan.png"
+  },
+  {
+    "id": 52,
+    "first-name": "Ariel Porfirio",
+    "last-name": "Querubin",
+    "partylist": "NP",
+    "image": "/candidates/Querubin.png",
+    "final-image": "/final-candidates/Querubin.png"
+  },
+  {
+    "id": 53,
+    "first-name": "Apollo",
+    "last-name": "Quiboloy",
+    "partylist": "IND",
+    "image": "/candidates/Quiboloy.png",
+    "final-image": "/final-candidates/Quiboloy.png"
+  },
+  {
+    "id": 54,
+    "first-name": "Danilo",
+    "last-name": "Ramos",
+    "partylist": "MKBYN",
+    "image": "/candidates/Ramos.png",
+    "final-image": "/final-candidates/Ramos.png"
+  },
+  {
+    "id": 55,
+    "first-name": "Willie Wil",
+    "last-name": "Revillame",
+    "partylist": "IND",
+    "image": "/candidates/Revillame.png",
+    "final-image": "/final-candidates/Revillame.png"
+  },
+  {
+    "id": 56,
+    "first-name": "Atty. Vic",
+    "last-name": "Rodriguez",
+    "partylist": "IND",
+    "image": "/candidates/Rodriguez.png",
+    "final-image": "/final-candidates/Rodriguez.png"
+  },
+  {
+    "id": 57,
+    "first-name": "Nur-ana",
+    "last-name": "Sahidulla",
+    "partylist": "IND",
+    "image": "/candidates/Sahidulla.png",
+    "final-image": "/final-candidates/Sahidulla.png"
+  },
+  {
+    "id": 58,
+    "first-name": "Philip Ipe",
+    "last-name": "Salvador",
+    "partylist": "PDPLBN",
+    "image": "/candidates/Salvador.png",
+    "final-image": "/final-candidates/Salvador.png"
+  },
+  {
+    "id": 59,
+    "first-name": "Tito",
+    "last-name": "Sotto",
+    "partylist": "NPC",
+    "image": "/candidates/Sotto.png",
+    "final-image": "/final-candidates/Sotto.png"
+  },
+  {
+    "id": 60,
+    "first-name": "Michael Bongbong",
+    "last-name": "Tapado",
+    "partylist": "PM",
+    "image": "/candidates/Tapado.png",
+    "final-image": "/final-candidates/Tapado.png"
+  },
+  {
+    "id": 61,
+    "first-name": "Francis Tol",
+    "last-name": "Tolentino",
+    "partylist": "PFP",
+    "image": "/candidates/Tolentino.png",
+    "final-image": "/final-candidates/Tolentino.png"
+  },
+  {
+    "id": 62,
+    "first-name": "Ben Bitag",
+    "last-name": "Tulfo",
+    "partylist": "IND",
+    "image": "/candidates/TulfoBen.png",
+    "final-image": "/final-candidates/TulfoBen.png"
+  },
+  {
+    "id": 63,
+    "first-name": "Erwin",
+    "last-name": "Tulfo",
+    "partylist": "LAKAS",
+    "image": "/candidates/TulfoErwin.png",
+    "final-image": "/final-candidates/TulfoErwin.png"
+  },
+  {
+    "id": 64,
+    "first-name": "Mar Manibela",
+    "last-name": "Valbuena",
+    "partylist": "IND",
+    "image": "/candidates/Valbuena.png",
+    "final-image": "/final-candidates/Valbuena.png"
+  },
+  {
+    "id": 65,
+    "first-name": "Leandro",
+    "last-name": "Verceles",
+    "partylist": "IND",
+    "image": "/candidates/Verceles.png",
+    "final-image": "/final-candidates/Verceles.png"
+  },
+  {
+    "id": 66,
+    "first-name": "Camille",
+    "last-name": "Villar",
+    "partylist": "NP",
+    "image": "/candidates/Villar.png",
+    "final-image": "/final-candidates/Villar.png"
+  }
 ]

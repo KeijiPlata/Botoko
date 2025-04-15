@@ -82,7 +82,7 @@ function Footer() {
               </div>
 
               <h2 className="text-white font-poppins lg:text-5xl md:text-4xl text-3xl font-semibold">
-                Let Me Know Here
+                Let Me Know
               </h2>
             </div>
             <form

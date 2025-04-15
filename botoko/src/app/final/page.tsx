@@ -132,7 +132,7 @@ const FinalListPage = () => {
               key={candidate.id}
               firstName={candidate["first-name"]}
               lastName={candidate["last-name"]}
-              position={candidate.position}
+              partylist={candidate.partylist}
               image={candidate["final-image"]}
             />
           )
@@ -164,7 +164,7 @@ const FinalListPage = () => {
                 key={candidate.id}
                 firstName={candidate["first-name"]}
                 lastName={candidate["last-name"]}
-                position={candidate.position}
+                partylist={candidate.partylist}
                 image={candidate["final-image"]}
               />
             )

@@ -7,7 +7,7 @@ type CandidateProps = {
   id: number;
   firstName: string;
   lastName: string;
-  position: string;
+  partylist: string;
   image: string;
   isAdded: boolean;
   onVoteToggle: () => void;
@@ -17,7 +17,7 @@ const Candidate = ({
   id,
   firstName,
   lastName,
-  position,
+  partylist,
   image,
   isAdded,
   onVoteToggle,
@@ -44,7 +44,7 @@ const Candidate = ({
             {lastName}
           </h2>
           <p className="text-white italic text-xs lg:text-base leading-none m-0">
-            {position}
+            {partylist}
           </p>
         </div>
       </div>
