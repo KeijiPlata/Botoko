@@ -12,7 +12,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
 import { IoEllipsisVertical } from "react-icons/io5";
-import logo from "../../../public/logo-botoko-with-tagline.svg";
+import logo from "../../../public/logo-botoko-with-tagline.png";
 import { AbstainedCandidate } from "../components/Abstained";
 import { FinalCandidate } from "../components/FinalCandidate";
 import { LoadingOverlay } from "../components/LoadingOverlay";

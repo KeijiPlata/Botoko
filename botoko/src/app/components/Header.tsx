@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import { useState } from "react";
-import Logo from "../../../public/logo-botoko.svg";
+import Logo from "../../../public/logo-botoko.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdLanguage } from "react-icons/md";
 import { useRouter } from "next/navigation";

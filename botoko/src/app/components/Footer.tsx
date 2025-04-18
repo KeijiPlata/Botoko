@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import logoInverted from "../../../public/logo-botoko-inverted.svg";
+import logoInverted from "../../../public/logo-botoko-inverted.png";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
@@ -59,14 +59,14 @@ function Footer() {
     <div className="bg-custom-blue transition-all duration-500">
       <Toaster />
       <div className="grid md:grid-cols-2 grid-cols-1 lg:p-10 md:p-8 p-6 md:gap-16 gap-14">
-        <div className="flex flex-col justify-center items-start">
+        <div className="flex flex-col justify-center items-start md:px-4 px-2">
           <img
             src={logoInverted.src}
             alt="logo"
             className="w-80 h-auto"
             crossOrigin="anonymous"
           />
-          <p className="text-white font-poppins md:px-4 px-2 text-sm md:text-base leading-relaxed text-justify">
+          <p className="text-white font-poppins text-sm md:text-base leading-relaxed text-justify">
             Botoko lets you build and share your Senate list. Choose your
             candidates, preview your list, and spread the word—no sign-up
             needed.
